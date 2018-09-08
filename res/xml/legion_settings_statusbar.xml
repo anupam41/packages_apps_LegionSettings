@@ -80,4 +80,10 @@
             android:summary="@string/battery_percent_summary"
             android:fragment="com.legion.settings.fragments.StatusbarBatterySettings"/>
 
+     <Preference
+        android:fragment="com.legion.settings.fragments.ClockOptions"
+        android:key="clock_options_category"
+        android:summary="@string/clock_options_summary"
+        android:title="@string/clock_options_title" />
+
 </PreferenceScreen>
