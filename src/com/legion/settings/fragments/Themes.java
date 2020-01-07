@@ -56,6 +56,7 @@ import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.legion.settings.preferences.RGBAccentPickerPreferenceController;
+import com.legion.settings.preferences.RGBGradientPickerPreferenceController;
 import com.legion.settings.preferences.CustomSeekBarPreference;
 import com.legion.settings.preferences.CustomOverlayPreferenceController;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
@@ -218,6 +219,7 @@ public class Themes extends DashboardFragment implements
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.wifi_icon"));
         controllers.add(new RGBAccentPickerPreferenceController(context));
+        controllers.add(new RGBGradientPickerPreferenceController(context));
         return controllers;
     }
 

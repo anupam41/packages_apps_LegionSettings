@@ -57,6 +57,13 @@
             android:defaultValue="0xfff3d324"
             android:persistent="false" />
 
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="gradient_color"
+	    settings:iconSpaceReserved="false"
+            android:title="@string/gradient_title"
+            android:defaultValue="0xfff3d324"
+            android:persistent="false" />
+
     <ListPreference
         android:key="android.theme.customization.custom_overlays"
         android:title="@string/theme_customization_systemui_title"
