@@ -63,6 +63,9 @@
     <string name="theme_customization_ui_radius_vol_title">UI radius volume</string>
     <string name="theme_customization_sysui_icon_title">Statusbar icon</string>
 
+    <string name="qs_icon_primary_title">Qs tile icon bright|dark</string>
+    <string name="qs_icon_primary_summary">Make Qs icon bright-dark if default tint enabled</string>
+
     <!--ThemePicker-->
     <string name="theme_select_title">Styles and Wallpapers</string>
     <string name="theme_select_summary">Browse and select installed themes</string>

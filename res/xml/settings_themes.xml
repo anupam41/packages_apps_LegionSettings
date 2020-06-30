@@ -158,6 +158,13 @@
             android:defaultValue="1" />
 
         <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_icon_primary"
+	    settings:iconSpaceReserved="false"
+            android:title="@string/qs_icon_primary_title"
+            android:summary="@string/qs_icon_primary_summary"
+            android:defaultValue="false" />
+
+        <com.legion.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_tiles_bg_disco"
 	    settings:iconSpaceReserved="false"
             android:title="@string/qs_bg_use_disco"
