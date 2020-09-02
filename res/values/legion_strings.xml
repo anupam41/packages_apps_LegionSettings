@@ -88,6 +88,9 @@
     <string name="rgb_accent_picker_title_dark">Accent Picker</string>
     <string name="rgb_accent_picker_summary">Choose the accent color yourself</string>
 
+    <string name="qs_bg_use_disco">QS tile disco</string>
+    <string name="qs_bg_use_disco_summary">Make your QS Tiles colorful!</string>
+
     <!-- Theme Reset -->
     <string name="theme_option_reset_title">Reset Theme Options</string>
     <string name="theme_option_reset_message">Are you sure you want to reset themes-accent to default?</string>
