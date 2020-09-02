@@ -90,6 +90,9 @@
     <string name="gradient_title">Gradient picker</string>
     <string name="gradient_summary">Gradient effect maker</string>
 
+    <string name="qs_bg_use_disco">QS tile disco</string>
+    <string name="qs_bg_use_disco_summary">Make your QS Tiles colorful!</string>
+
     <!-- Theme Reset -->
     <string name="theme_option_reset_title">Reset Theme Options</string>
     <string name="theme_option_reset_message">Are you sure you want to reset themes-accent to default?</string>

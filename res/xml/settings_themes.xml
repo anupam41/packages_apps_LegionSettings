@@ -178,5 +178,12 @@
             android:entryValues="@array/qs_tint_values"
             android:summary="@string/qs_bg_use_new_tint_summary"
             android:defaultValue="1" />
+
+        <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_tiles_bg_disco"
+	    settings:iconSpaceReserved="false"
+            android:title="@string/qs_bg_use_disco"
+            android:summary="@string/qs_bg_use_disco_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>
