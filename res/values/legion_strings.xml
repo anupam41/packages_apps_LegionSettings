@@ -814,5 +814,14 @@
     <string name="switch_contained">Contained</string>
     <string name="switch_telegram">Telegram</string>
 
+    <!-- Navbar options -->
+    <string name="navbar_invert_layout_title">Invert layout</string>
+
+    <!-- Navbar options -->
+    <string name="nav_bar_tuner_title">Navigation bar tuner</string>
+    <string name="nav_bar_tuner_summary">Change navbar layout</string>
+    <string name="navigation_bar_title">Navigation bar</string>
+    <string name="system_navigation_summary">Choose which system navigation style to use</string>
+
 </resources>
 
