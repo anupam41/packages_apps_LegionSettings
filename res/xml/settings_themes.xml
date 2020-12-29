@@ -77,6 +77,14 @@
 	    android:key="android.theme.customization.ui_radius"
             android:title="@string/theme_customization_ui_radius_title"/>
 
+        <ListPreference
+        android:key="ui_style"
+        android:title="@string/ui_style_title"
+        android:icon="@drawable/ic_ui"
+        android:entries="@array/ui_style_selector_entries"
+        android:entryValues="@array/ui_style_selector_values"
+        android:persistent="false" />
+
     <PreferenceCategory
 	android:key="qs_category" 
         android:title="@string/qs_themes_category_title" > 
@@ -90,5 +98,12 @@
             android:defaultValue="100"
             android:persistent="false" />
 
+         <ListPreference
+        android:key="brightness_slider_style"
+        android:icon="@drawable/ic_brightness"
+        android:title="@string/brightness_slider_style_title"
+        android:entries="@array/brightness_slider_style_selector_entries"
+        android:entryValues="@array/brightness_slider_style_selector_values"
+        android:persistent="false" />
     </PreferenceCategory>
 </PreferenceScreen>
