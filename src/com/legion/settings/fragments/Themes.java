@@ -3,6 +3,7 @@ package com.legion.settings.fragments;
 import com.android.internal.logging.nano.MetricsProto;
 
 import static android.os.UserHandle.USER_SYSTEM;
+import static com.legion.settings.utils.Utils.handleOverlays;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -65,6 +66,7 @@ public class Themes extends DashboardFragment implements
     private static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
     private static final String UI_STYLE = "ui_style";
     private static final String PREF_PANEL_BG = "panel_bg";
+    private static final String QS_HEADER_STYLE = "qs_header_style";
     private static final String ACCENT_COLOR = "accent_color";
     private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
     private static final String GRADIENT_COLOR = "gradient_color";
@@ -85,6 +87,7 @@ public class Themes extends DashboardFragment implements
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mUIStyle;
     private ListPreference mPanelBg;
+    private ListPreference mQsHeaderStyle;
 
     @Override
     protected String getLogTag() {
@@ -101,6 +104,8 @@ public class Themes extends DashboardFragment implements
         super.onCreate(icicle);
 
 //        addPreferencesFromResource(R.xml.settings_themes);
+        PreferenceScreen prefScreen = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
 
         mUIStyle = (ListPreference) findPreference(UI_STYLE);
         int UIStyle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -172,6 +177,14 @@ public class Themes extends DashboardFragment implements
         mPanelBg.setSummary(mPanelBg.getEntry());
         mPanelBg.setOnPreferenceChangeListener(this);
 
+        mQsHeaderStyle = (ListPreference)findPreference(QS_HEADER_STYLE);
+        int qsHeaderStyle = Settings.System.getInt(resolver,
+                Settings.System.QS_HEADER_STYLE, 0);
+        int qsvalueIndex = mQsHeaderStyle.findIndexOfValue(String.valueOf(qsHeaderStyle));
+        mQsHeaderStyle.setValueIndex(qsvalueIndex >= 0 ? qsvalueIndex : 0);
+        mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());
+        mQsHeaderStyle.setOnPreferenceChangeListener(this);
+
         mUiModeManager = getContext().getSystemService(UiModeManager.class);
 
         mOverlayService = IOverlayManager.Stub
@@ -207,6 +220,7 @@ public class Themes extends DashboardFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mThemeColor) {
             int color = (Integer) objValue;
             String hexColor = String.format("%08X", (0xFFFFFFFF & color));
@@ -340,6 +354,12 @@ public class Themes extends DashboardFragment implements
     
                 }
                 mPanelBg.setSummary(mPanelBg.getEntry());
+            } else if (preference == mQsHeaderStyle) {
+                String value = (String) objValue;
+                Settings.System.putInt(resolver,
+                    Settings.System.QS_HEADER_STYLE, Integer.valueOf(value));
+                int newIndex = mQsHeaderStyle.findIndexOfValue(value);
+                mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntries()[newIndex]);
         }
         return true;
     }
