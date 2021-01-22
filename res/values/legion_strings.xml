@@ -806,5 +806,13 @@
     <string name="clock_date_left">Left of time</string>
     <string name="clock_date_position">Date position</string>
 
+    <!-- Switch styles -->
+    <string name="switch_style_title">Switch appearance</string>
+    <string name="switch_default">Default</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_narrow">Narrow</string>
+    <string name="switch_contained">Contained</string>
+    <string name="switch_telegram">Telegram</string>
+
 </resources>
 
