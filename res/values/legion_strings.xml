@@ -1194,5 +1194,9 @@
     <!-- Statusbar left_right padding -->
     <string name="statusbar_left_padding">Statusbar left padding</string>
     <string name="statusbar_right_padding">Statusbar right padding</string>
-	
+
+    <!-- Media artwork -->
+    <string name="artwork_media_background_title">Artwork media background</string>
+    <string name="artwork_media_background_summary">Set media artwork as notification media background</string>
+
 </resources>
