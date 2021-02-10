@@ -55,8 +55,6 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private static final String GESTURE_SYSTEM_NAVIGATION = "gesture_system_navigation";
     private static final String LAYOUT_SETTINGS = "navbar_layout_views";
     private static final String NAVBAR_VISIBILITY = "navbar_visibility";
-    private static final String NAVIGATION_BAR_INVERSE = "navbar_inverse_layout";
-    private static final String PIXEL_NAV_ANIMATION = "pixel_nav_animation";
 
     private Preference mGestureSystemNavigation;
     private Preference mLayoutSettings;
@@ -74,22 +72,18 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mGestureSystemNavigation = findPreference(GESTURE_SYSTEM_NAVIGATION);
-        mPixelNavAnimation = findPreference(PIXEL_NAV_ANIMATION);
         mLayoutSettings = findPreference(LAYOUT_SETTINGS);
         mSwapNavButtons = findPreference(NAVIGATION_BAR_INVERSE);
 
         // On three button nav
         if (LegionUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")) {
             mGestureSystemNavigation.setSummary(getString(R.string.legacy_navigation_title));
-            mPixelNavAnimation.setSummary(getString(R.string.pixel_navbar_anim_summary));
         // On gesture nav
         } else {
             mGestureSystemNavigation.setSummary(getString(R.string.edge_to_edge_navigation_title));
             mLayoutSettings.setSummary(getString(R.string.unsupported_gestures));
-            mPixelNavAnimation.setSummary(getString(R.string.unsupported_gestures));
             mSwapNavButtons.setSummary(getString(R.string.unsupported_gestures));
             mLayoutSettings.setEnabled(false);
-            mPixelNavAnimation.setEnabled(false);
             mSwapNavButtons.setEnabled(false);
         }
 
