@@ -55,6 +55,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private static final String GESTURE_SYSTEM_NAVIGATION = "gesture_system_navigation";
     private static final String LAYOUT_SETTINGS = "navbar_layout_views";
     private static final String NAVBAR_VISIBILITY = "navbar_visibility";
+    private static final String NAVIGATION_BAR_INVERSE = "navbar_inverse_layout";
 
     private Preference mGestureSystemNavigation;
     private Preference mLayoutSettings;
