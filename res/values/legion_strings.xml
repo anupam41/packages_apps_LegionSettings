@@ -531,6 +531,13 @@
     <string name="backlight_timeout_20s">20 sec</string>
     <string name="backlight_timeout_30s">30 sec</string>
 
+    <!-- Accent QS tint -->
+    <string name="qs_bg_use_new_tint">Tint QS tiles</string>
+    <string name="qs_bg_use_new_tint_summary">Choose the QS Tint Style</string>
+    <string name="qs_tint_off">Default</string>
+    <string name="qs_tint_accent">Accent Color</string>
+    <string name="qs_tint_oos">OxygenOS 11</string>
+
     <!-- Enable keys backlight-->
     <string name="button_brightness_title">Backlight</string>
     <string name="backlight_cat_title">Button Brightness</string>
