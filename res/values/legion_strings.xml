@@ -650,6 +650,7 @@
     <string name="lockscreen_charging_animation_water">Water</string>
 
     <!-- Quick Settings brightness slider -->
+    <string name="qs_brightness_slider_category_title">QS brightness slider</string>
     <string name="qs_show_brightness_slider_title">Quick QS brightness slider</string>
     <string name="qs_show_brightness_slider_summary">Show brightness slider in quickbar</string>
     <string name="qs_show_brightness_slider_expanded_title">Expanded QS brightness slider</string>
@@ -833,6 +834,7 @@
     <string name="navbar_layout_rightleaning">Right-leaning</string>
 
     <!-- QS Header data uasge -->
+    <string name="qs_datausage_category_title">QS data usage</string>
     <string name="qs_datausage_title">Data usage in QS Header</string>
     <string name="qs_datausage_disabled">Disabled</string>
     <string name="qs_datausage_daily">Daily usage</string>
@@ -842,6 +844,15 @@
     <string name="status_bar_clock_font_style_title">Clock font style</string>
     <string name="status_bar_clock_font_size_title">Clock font size</string>
     <string name="status_bar_clock_color_title">Clock font color</string>
+
+	<!-- QS rows and columns -->
+    <string name="qs_columns_rows_category_title">QS columns and rows</string>
+    <string name="qs_rows_columns_title">QS rows and columns</string>
+    <string name="qs_rows_portrait_title">Tiles rows on portrait</string>
+    <string name="qs_rows_landscape_title">Tiles rows on landscape</string>
+    <string name="qs_columns_portrait_title">Tiles columns on portrait</string>
+    <string name="qs_columns_landscape_title">Tiles columns on landscape</string>
+    <string name="qs_tile_title_visibility_title">Show tiles title</string>
        
 </resources>
 
