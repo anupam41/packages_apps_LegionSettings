@@ -69,8 +69,6 @@ public class Themes extends DashboardFragment implements
     private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
     private static final String PREF_THEME_SWITCH = "theme_switch";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
-    private static final String FILE_QSPANEL_SELECT = "file_qspanel_select";
-    private static final int REQUEST_PICK_IMAGE = 0;
     private static final int MENU_RESET = Menu.FIRST;
 
     static final int DEFAULT = 0xff1a73e8;
@@ -82,7 +80,6 @@ public class Themes extends DashboardFragment implements
     private ColorPickerPreference mGradientColor;
     private ListPreference mThemeSwitch;
     private CustomSeekBarPreference mQsPanelAlpha;
-    private Preference mQsPanelImage;
 
     @Override
     protected String getLogTag() {
@@ -104,8 +101,6 @@ public class Themes extends DashboardFragment implements
 
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
-
-        mQsPanelImage = findPreference(FILE_QSPANEL_SELECT);
 
         setupAccentPref();
         setupGradientPref();
@@ -259,17 +254,6 @@ public class Themes extends DashboardFragment implements
         return true;
     }
 
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mQsPanelImage) {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-            intent.setType("image/*");
-            startActivityForResult(intent, REQUEST_PICK_IMAGE);
-            return true;
-        }
-        return super.onPreferenceTreeClick(preference);
-    }
-
     private void setupAccentPref() {
         mThemeColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
         String colorVal = SystemProperties.get(ACCENT_COLOR_PROP, "-1");
@@ -334,17 +318,6 @@ public class Themes extends DashboardFragment implements
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent result) {
-        if (requestCode == REQUEST_PICK_IMAGE) {
-            if (resultCode != Activity.RESULT_OK) {
-                return;
-            }
-            final Uri imageUri = result.getData();
-            Settings.System.putString(getContentResolver(), Settings.System.QS_PANEL_CUSTOM_IMAGE, imageUri.toString());
         }
     }
 
