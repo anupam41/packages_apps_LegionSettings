@@ -1045,4 +1045,9 @@
     <!-- Allow to suppress notifications sound/vibration if screen is ON -->
     <string name="notification_sound_vib_screen_on_title">Active screen notification</string>
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
+
+    <!-- Universal disco -->
+    <string name="universal_disco_title">Universal Disco</string>
+    <string name="universal_disco_summary">System wide random color tint</string>
+
 </resources>

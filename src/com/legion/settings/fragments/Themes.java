@@ -71,12 +71,14 @@ public class Themes extends DashboardFragment implements
     private static final String PREF_PANEL_BG = "panel_bg";
     private static final String QS_HEADER_STYLE = "qs_header_style";
     private static final String QS_TILE_STYLE = "qs_tile_style";
+    private static final String PREF_UNIVERSAL_DISCO = "universal_disco";
     static final int DEFAULT = 0xff1a73e8;
 
     private Context mContext;
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
+    private SecureSettingSwitchPreference mUniversalDisco;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mUIStyle;
     private ListPreference mPanelBg;
@@ -193,6 +195,11 @@ public class Themes extends DashboardFragment implements
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
+        mUniversalDisco = (SecureSettingSwitchPreference) findPreference(PREF_UNIVERSAL_DISCO);
+        mUniversalDisco.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.Secure.UNIVERSAL_DISCO, 0) == 1));
+        mUniversalDisco.setOnPreferenceChangeListener(this);
+
     }
     @Override
     protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
@@ -223,7 +230,12 @@ public class Themes extends DashboardFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-	if (preference == mPanelBg) {
+        if (preference == mUniversalDisco) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.UNIVERSAL_DISCO, value ? 1 : 0);
+            LegionUtils.showSystemUiRestartDialog(getContext());
+	} else if (preference == mPanelBg) {
                 String panelbg = (String) objValue;
                 int panelBgValue = Integer.parseInt(panelbg);
                 mPanelBg.setValue(String.valueOf(panelBgValue));
