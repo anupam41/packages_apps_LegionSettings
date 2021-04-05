@@ -886,7 +886,7 @@
 	<!-- QS header image -->
     <string name="qs_header_category_title">QS Headers </string>
     <string name="status_bar_custom_header_title">Header image</string>
-    <string name="status_bar_custom_header_summary">Use a custom image for QS header</string>
+    <string name="status_bar_custom_header_summary">Use a custom image for QS header (SystemUi restart required)</string>
     <string name="daylight_header_provider" translatable="false">daylight</string>
     <string name="file_header_provider" translatable="false">file</string>
     <string name="custom_header_provider_title">Image type</string>
