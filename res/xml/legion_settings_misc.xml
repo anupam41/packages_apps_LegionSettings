@@ -42,4 +42,12 @@
             android:title="@string/powersave_title" 
             android:summary="@string/powersave_summary"
             android:fragment="com.legion.settings.fragments.PowerSaving"/>
+
+        <Preference
+            android:key="gaming_category"
+            settings:iconSpaceReserved="false"
+            android:title="@string/gaming_title"
+            android:summary="@string/gaming_title_summary"
+            android:fragment="com.legion.settings.fragments.GamingModeSettings" />
+
 </PreferenceScreen>
