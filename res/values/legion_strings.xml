@@ -528,6 +528,7 @@
     <string name="qs_tint_off">Default</string>
     <string name="qs_tint_accent">Accent Color</string>
     <string name="qs_tint_oos">OxygenOS 11</string>
+   <string name="qs_tint_twelve">Android 12</string>
 
     <!-- Enable keys backlight-->
     <string name="button_brightness_title">Backlight</string>
