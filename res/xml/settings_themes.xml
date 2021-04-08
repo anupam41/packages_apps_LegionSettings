@@ -125,14 +125,13 @@
         android:title="@string/qs_themes_category_title" > 
 
         <com.legion.settings.preferences.CustomSeekBarPreference
-            android:key="qs_panel_alpha"
-	    settings:iconSpaceReserved="false"
-            android:title="@string/qs_panel_alpha_title"
-            android:summary="@string/qs_panel_alpha_summary"
-            android:max="100"
-            settings:min="0"
-            android:defaultValue="85"
-            android:persistent="false" />
+            android:key="qs_panel_bg_alpha"
+            android:title="@string/qs_panel_bg_alpha_title"
+            android:defaultValue="255"
+            android:max="255"
+            android:min="0"
+            settings:units=""
+	    settings:iconSpaceReserved="false" />
 
         <ListPreference
             android:key="brightness_slider_style"
@@ -185,5 +184,31 @@
             android:title="@string/qs_bg_use_disco"
             android:summary="@string/qs_bg_use_disco_summary"
             android:defaultValue="false" />
+
+        <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_fw"
+            android:title="@string/qs_panel_bg_use_fw_title"
+            android:summary="@string/qs_panel_bg_use_fw_summary"
+            android:defaultValue="true"
+            settings:iconSpaceReserved="false"
+            android:disableDependentsState="true" />
+
+        <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="sysui_colors_active"
+            android:title="@string/sysui_colors_active_title"
+            android:summary="@string/sysui_colors_active_summary"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw"
+	    settings:iconSpaceReserved="false"
+            android:disableDependentsState="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="qs_panel_color"
+            android:title="@string/qs_panel_bg_color_title"
+            android:defaultValue="0xFFFFFFFF"
+            android:persistent="false"
+	    settings:iconSpaceReserved="false"
+            android:dependency="sysui_colors_active" />
+
     </PreferenceCategory>
 </PreferenceScreen>

@@ -58,6 +58,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.legion.settings.preferences.RGBAccentPickerPreferenceController;
 import com.legion.settings.preferences.RGBGradientPickerPreferenceController;
 import com.legion.settings.preferences.CustomSeekBarPreference;
+import com.legion.settings.preferences.QsColorPreferenceController;
 import com.legion.settings.preferences.CustomOverlayPreferenceController;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
 
@@ -214,6 +215,7 @@ public class Themes extends DashboardFragment implements
                 "android.theme.customization.icon_pack.android"));
         controllers.add(new CustomOverlayPreferenceController(context,
                 "android.theme.customization.custom_overlays"));
+        controllers.add(new QsColorPreferenceController(context));
 		controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.signal_icon"));
         controllers.add(new OverlayCategoryPreferenceController(context,
