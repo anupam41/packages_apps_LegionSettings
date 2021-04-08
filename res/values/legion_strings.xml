@@ -1022,4 +1022,12 @@
     <string name="monet_pallete_summary">Color Modes.  \n(After Choosing you need to reapply the wallpaper for the changes to take affect).</string>
     <string name="monet_accuracy">Monet Accuracy</string>
     <string name="monet_accuracy_summary">The More Accurate the slower (Def 16)</string>
+
+    <string name="qs_panel_bg_use_fw_title">Framework defaults</string>
+    <string name="qs_panel_bg_use_fw_summary">Disable QS and scrim color customizations</string>
+    <string name="qs_panel_bg_color_title">Background color</string>
+    <string name="qs_panel_bg_color_summary">Change color of your QS panel</string>
+    <string name="qs_panel_bg_alpha_title">Background alpha</string>
+    <string name="sysui_colors_active_title">Colored SystemUI</string>
+    <string name="sysui_colors_active_summary">Wallpaper colored scrims and QS</string>
 </resources>
