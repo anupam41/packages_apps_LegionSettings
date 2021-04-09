@@ -177,16 +177,6 @@
                         android:data="https://t.me/AnonymousHacker_47" />
             </Preference>
 
-
-            <Preference
-                android:title="@string/jasmine_sprout_maintainer"
-                android:summary="@string/device_jasmine_sprout"
-                android:icon="@drawable/ic_devs_phone" >
-                    <intent
-                        android:action="android.intent.action.VIEW"
-                        android:data="https://t.me/Immanuel_Raj" />
-            </Preference>
-	
             <Preference
                 android:title="@string/ysl_maintainer"
                 android:summary="@string/device_ysl"
