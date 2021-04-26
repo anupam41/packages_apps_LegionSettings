@@ -25,26 +25,6 @@
         android:summary="@string/heads_up_summary"
         android:fragment="com.legion.settings.fragments.HeadsUpSettings" />
 
-<PreferenceCategory
-        android:key="flash_on_call_options"
-        android:title="@string/flash_on_call_category" >
-
-         <com.legion.settings.preferences.SystemSettingSwitchPreference
-            android:key="flash_on_call_waiting"
-            android:title="@string/flash_on_call_title"
-            android:defaultValue="false" />
-
-         <com.legion.settings.preferences.CustomSeekBarPreference
-            android:key="flash_on_call_waiting_delay"
-            android:max="1000"
-            android:persistent="false"
-            android:title="@string/flash_on_call_delay_title"
-            settings:min="50"
-            settings:units="ms"
-            settings:interval="50"
-            android:dependency="flash_on_call_waiting"/>
-         </PreferenceCategory>
-
     <com.legion.settings.preferences.SystemSettingSwitchPreference
         android:key="notification_headers"
         android:title="@string/notification_headers_title"
@@ -57,7 +37,14 @@
         android:summary="@string/center_notification_headers_summary"
         android:dependency="notification_headers"
         android:defaultValue="true" />
-<PreferenceCategory
+
+    <Preference
+        android:key="charging_light"
+        android:title="@string/battery_light_settings"
+        android:summary="@string/battery_light_summary"
+        android:fragment="com.legion.settings.fragments.BatteryLightSettings" />
+
+     <PreferenceCategory
         android:key="incall_vib_options"
         android:title="@string/incall_vibration_category" >
 
@@ -75,12 +62,26 @@
             android:key="vibrate_on_disconnect"
             android:title="@string/incall_vibrate_disconnect_title"
             android:defaultValue="false" />
-</PreferenceCategory>
+      </PreferenceCategory>
+ 
+      <PreferenceCategory
+        android:key="flash_on_call_options"
+        android:title="@string/flash_on_call_category" >
 
-        <Preference
-            android:key="charging_light"
-            android:title="@string/battery_light_settings"
-            android:summary="@string/battery_light_summary"
-            android:fragment="com.legion.settings.fragments.BatteryLightSettings" />
+         <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="flash_on_call_waiting"
+            android:title="@string/flash_on_call_title"
+            android:defaultValue="false" />
+
+         <com.legion.settings.preferences.CustomSeekBarPreference
+            android:key="flash_on_call_waiting_delay"
+            android:max="1000"
+            android:persistent="false"
+            android:title="@string/flash_on_call_delay_title"
+            settings:min="50"
+            settings:units="ms"
+            settings:interval="50"
+            android:dependency="flash_on_call_waiting"/>
+     </PreferenceCategory>
 
 </PreferenceScreen>

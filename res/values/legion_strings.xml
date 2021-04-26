@@ -55,8 +55,11 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
 
+    <!-- Footer -->
+    <string name="qs_settings_footer">Check Themeing category for more QS themeing customizations.</string> 
+        
     <!-- Themes -->
-    <string name="theme_type_title">DarkUi themes</string>
+    <string name="theme_type_title">Base Themes</string>
     <string name="theme_type_summary">Select theme</string>
     <string name="theme_type_light">Light</string>
     <string name="theme_type_pitch_black">Legion Dark</string>
@@ -64,7 +67,7 @@
     <string name="theme_type_baked_green">Baked Green</string>
     <string name="theme_type_choco_x">Choco Colt</string>
     <string name="theme_type_dark_grey">Dark Grey</string>
-    <string name="theme_type_du_pitchblack">Pitch black</string> 
+    <string name="theme_type_du_pitchblack">Pitch Black</string> 
     <string name="theme_type_material_ocean">Material Ocean</string>
     <string name="theme_type_xtended_clear">Xtended Clear</string>
 
@@ -677,7 +680,7 @@
 
     <!-- Center R Notification headers -->
     <string name="center_notification_headers_title">Center notification headers</string>
-    <string name="center_notification_headers_summary">Whether to Center R style notification headers (Requires a SystemUI restart)</string>
+    <string name="center_notification_headers_summary">Whether to Center R style notification headers\nRequires a SystemUI restart</string>
 
     <!-- Fingerprint Customizations -->
     <string name="fingerprint_title">Fingerprint Customizations</string>
@@ -714,8 +717,8 @@
     <string name="qs_battery_percentage_summary">Show battery percentage in the QS header instead of battery estimate</string>
 
     <!-- Oneui -->
-    <string name="enable_oneui">OneUI</string>
-    <string name="enable_oneui_summary">Show spacer above settings actionbar for easier use with one hand\nNOTE: restart settings app to see effect</string>
+    <string name="enable_oneui">Expanded Settings Header</string>
+    <string name="enable_oneui_summary">Expands settings title for ease of use with one hand\nNOTE: restart settings app to see effect</string>
 
     <string name="fod_recog_animation_effect_title">Select fingerprint animation effect</string>
     <string name="fod_recog_animation_miui_aurora">Aurora (K30 Pro)</string>
@@ -883,7 +886,7 @@
     <string name="quick_settings_quick_pull_down_title">Quick Settings quick pull-down</string>
     <string name="quick_settings_quick_pull_down_summary">Automatically expand Quick Settings when pulling from the right side of the status bar</string>
 
-	<!-- QS header image -->
+   <!-- QS header image -->
     <string name="qs_header_category_title">QS Headers </string>
     <string name="status_bar_custom_header_title">Header image</string>
     <string name="status_bar_custom_header_summary">Use a custom image for QS header (SystemUi restart required)</string>
@@ -899,5 +902,6 @@
     <string name="file_header_select_title">Pick image from storage</string>
     <string name="file_header_select_summary">Select an image from internal storage</string>
     <string name="status_bar_custom_header_shadow_title">Darken image</string>
+    
 </resources>
 

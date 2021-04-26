@@ -27,17 +27,17 @@
         android:summary="@string/power_menu_animation_summary"
         android:persistent="false" />
 
-        <com.legion.settings.preferences.SecureSettingSwitchPreference
-            android:key="advanced_reboot"
-            android:title="@string/global_actions_advanced_reboot_title"
-            android:summary="@string/global_actions_advanced_reboot_summary"
-            android:defaultValue="true" />
-
         <Preference
             android:key="global_actions"
             android:title="@string/global_actions_title"
             android:summary="@string/global_actions_summary"
             android:fragment="com.legion.settings.fragments.GlobalActionsSettings" />
+
+        <com.legion.settings.preferences.SecureSettingSwitchPreference
+            android:key="advanced_reboot"
+            android:title="@string/global_actions_advanced_reboot_title"
+            android:summary="@string/global_actions_advanced_reboot_summary"
+            android:defaultValue="true" />
 
     <com.legion.settings.preferences.SecureSettingSwitchPreference
         android:key="power_menu_hide_on_secure"
