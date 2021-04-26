@@ -18,6 +18,15 @@
         android:title="@string/themes_color"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <ListPreference
+        android:key="theme_switch"
+        android:title="@string/theme_type_title"
+	android:summary="%s"
+        android:dialogTitle="@string/theme_type_summary"
+        android:entries="@array/theme_type_titles"
+        android:entryValues="@array/theme_type_values"
+        android:defaultValue="1"/>
+
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="accent_color"
         android:title="@string/accent_color"
@@ -32,16 +41,6 @@
         android:defaultValue="0xffffff"
         android:persistent="false" />
 
-    <ListPreference
-        android:key="theme_switch"
-        android:title="@string/theme_type_title"
-	android:summary="%s"
-        android:dialogTitle="@string/theme_type_summary"
-        android:entries="@array/theme_type_titles"
-        android:entryValues="@array/theme_type_values"
-        android:defaultValue="1"/>
-
-
     <com.legion.settings.preferences.SystemSettingListPreference
         android:key="switch_style"
         android:title="@string/switch_style_title"
@@ -50,12 +49,6 @@
         android:entryValues="@array/switch_style_values"
         android:summary="%s"
         android:defaultValue="0" />
-
-    <com.legion.settings.preferences.SystemSettingSwitchPreference 
-            android:key="settings_spacer" 
-            android:title="@string/enable_oneui" 
-            android:summary="@string/enable_oneui_summary" 
-            android:defaultValue="true" />
 
         <ListPreference
             android:key="android.theme.customization.font"
@@ -75,7 +68,13 @@
         android:entries="@array/ui_style_selector_entries"
         android:entryValues="@array/ui_style_selector_values"
         android:persistent="false" />
-	
+
+    <com.legion.settings.preferences.SystemSettingSwitchPreference 
+            android:key="settings_spacer" 
+            android:title="@string/enable_oneui" 
+            android:summary="@string/enable_oneui_summary" 
+            android:defaultValue="true" />
+
     <PreferenceCategory
 	android:key="qs_category" 
         android:title="@string/qs_themes_category_title" > 
