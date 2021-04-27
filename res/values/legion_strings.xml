@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App Title -->
-    <string name="legion_settings_title">LEGION SETTINGS</string>
+    <string name="legion_settings_title">Legion Settings</string>
 
     <string name="default_string">Default</string>
     <!-- Categories -->
@@ -28,7 +28,7 @@
     <string name="notifications_title">Notifications</string>
     <string name="powermenu_title">Power menu</string>
     <string name="quicksettings_title">Quick Settings</string>
-    <string name="miscsettings_title">Additional Settings</string>
+    <string name="miscsettings_title">Miscellaneous</string>
     <string name="statusbar_title">Status bar</string>
     <string name="themesui_title">ThemesUi</string>    
     <string name="animations_title">Animations</string>
