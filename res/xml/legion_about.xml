@@ -124,19 +124,4 @@
 
      </PreferenceCategory>
  
-     <PreferenceCategory
-               android:key="legion_maintainers"
-               android:title="@string/official_devices" >
-
-        <Preference
-             android:key="maintainers"
-             android:fragment="com.legion.settings.fragments.Maintainers"
-             android:icon="@drawable/ic_maintainers"
-	     android:title="@string/maintainers_header" 
-             android:summary="@string/maintainers_summary" >
-  			
-        </Preference>
-
-     </PreferenceCategory>
-
 </PreferenceScreen>

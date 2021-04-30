@@ -46,9 +46,4 @@
      <string name="donate_description">Donation is not necessary, but each and every penny from you will help us to pay server bills.</string>
      <string name="donation_link">https://paypal.me/rajkale99</string>
 
-     <!--Device maintainers -->
-     <string name="official_devices">Official Devices</string>
-     <string name="maintainers_header">Our Maintainers</string>
-     <string name="maintainers_summary">official devices and maintainers</string>
-
 </resources>
