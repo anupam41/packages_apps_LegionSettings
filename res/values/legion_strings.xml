@@ -719,7 +719,8 @@
     <string name="enable_oneui">Expanded Settings Header</string>
     <string name="enable_oneui_summary">Expands settings title for ease of use with one hand\nNOTE: restart settings app to see effect</string>
 
-    <string name="fod_recog_animation_effect_title">Select fingerprint animation effect</string>
+    <string name="fod_recog_animation_effect_title">Fingerprint animation effect</string>
+    <string name="fod_recog_animation_effect_summary">Choose your favorite fingerprint Animation</string>
     <string name="fod_recog_animation_miui_aurora">Aurora (K30 Pro)</string>
     <string name="fod_recog_animation_miui_aurora_cas">Aurora (Mi 10 Ultra)</string>
     <string name="fod_recog_animation_miui_star_cas">Starlight</string>
