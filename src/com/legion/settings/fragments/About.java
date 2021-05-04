@@ -39,6 +39,7 @@ public class About extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        getActivity().getActionBar().show();
         addPreferencesFromResource(R.xml.legion_about);
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
