@@ -34,7 +34,8 @@
 				android:contentDescription="@string/legion_settings_title"
 				android:padding="1dp"
 				android:src="@drawable/legion"
-				android:layout_marginTop="25dp"
+				android:layout_marginTop="30dp"
+				android:alpha=".70"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintTop_toTopOf="@id/imageHeader"
 				app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +49,7 @@
 				android:textAlignment="center"
 				android:text="@string/legion_settings_title"
 				android:textColor="@android:color/white"
-				android:layout_marginTop="5dp"
+				android:layout_marginTop="15dp"
 				android:textStyle="bold"
 				app:layout_constraintTop_toBottomOf="@id/Logo"
 				android:textSize="25sp" >
