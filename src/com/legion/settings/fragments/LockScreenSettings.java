@@ -40,6 +40,8 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.settings.Utils;
+import com.legion.settings.utils.Utils;
 import com.legion.settings.preferences.CustomSeekBarPreference;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
 import com.legion.settings.preferences.SystemSettingSeekBarPreference;
@@ -49,8 +51,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
+    private static final String KEY_LOCKSCREEN_BLUR = "lockscreen_blur";
 
     private Preference mFODIconPicker;
+    private SystemSettingSeekBarPreference mLockscreenBlur;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -65,7 +70,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 && !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
             prefScreen.removePreference(mFODIconPicker);
         }
+
+        mLockscreenBlur = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR);
+        if (!Utils.isBlurSupported()) {
+            mLockscreenBlur.setVisible(false);
+        }
     }
+
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
 
