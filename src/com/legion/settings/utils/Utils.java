@@ -19,15 +19,25 @@ package com.legion.settings.utils;
 
 import static android.os.UserHandle.USER_SYSTEM;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.om.IOverlayManager;
 import android.os.AsyncTask;
 import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.widget.Toast;
 
 import com.android.settings.R;
 
 public class Utils {
+
+    public static boolean isBlurSupported() {
+        boolean blurSupportedSysProp = SystemProperties
+            .getBoolean("ro.surface_flinger.supports_background_blur", false);
+        boolean blurDisabledSysProp = SystemProperties
+            .getBoolean("persist.sys.sf.disable_blurs", false);
+        return blurSupportedSysProp && !blurDisabledSysProp && ActivityManager.isHighEndGfx();
+    }
 
     public static void handleOverlays(String packagename, Boolean state, IOverlayManager mOverlayManager) {
         try {
