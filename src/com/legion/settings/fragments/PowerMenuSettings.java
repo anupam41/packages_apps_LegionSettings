@@ -53,7 +53,6 @@ public class PowerMenuSettings extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        getActivity().getActionBar().show();
 
         addPreferencesFromResource(R.xml.legion_settings_power);
 

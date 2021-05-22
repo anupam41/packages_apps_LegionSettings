@@ -77,7 +77,6 @@ public class AnimationSettings extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        getActivity().getActionBar().show();
         addPreferencesFromResource(R.xml.x_settings_animations);
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefs = getPreferenceScreen();

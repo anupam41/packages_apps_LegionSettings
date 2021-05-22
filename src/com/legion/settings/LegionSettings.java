@@ -31,10 +31,6 @@ import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.Toast;
 import android.view.View;
-import android.view.Window;  
-import android.view.WindowManager;  
-import android.view.WindowManager.LayoutParams;
-import com.android.internal.policy.DecorView;
 import android.util.Log;
 
 import android.view.LayoutInflater;
@@ -84,9 +80,6 @@ public class LegionSettings extends SettingsPreferenceFragment implements View.O
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-                    getActivity().getActionBar().hide();
-                    getActivity().getWindow().setStatusBarColor(Color.TRANSPARENT);
-		    getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
        return inflater.inflate(R.layout.legion_settings, container, false);
     }
@@ -94,6 +87,8 @@ public class LegionSettings extends SettingsPreferenceFragment implements View.O
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+		    getActivity().getActionBar().hide();
+                   getActivity().getWindow().setStatusBarColor(Color.TRANSPARENT);
 
         mlegionqsCard = (MaterialCardView) view.findViewById(R.id.legionqs_card);
         mlegionqsCard.setOnClickListener(this);
