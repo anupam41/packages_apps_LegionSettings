@@ -44,6 +44,7 @@
         <PreferenceScreen
             android:key="ambient_category"
             android:title="@string/ambient_decor_title"
+	    android:summary="@string/ambient_decor_summary"
             android:fragment="com.legion.settings.fragments.XAmbientDecorSettings" />
 
     <PreferenceScreen
