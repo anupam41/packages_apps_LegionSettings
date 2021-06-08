@@ -926,7 +926,8 @@
     <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>
     <string name="volume_panel_miui_val" translatable="false">co.potatoproject.plugin.volume.miui</string>
 
-    <string name="ambient_decor_title">Ambient </string>    
+    <string name="ambient_decor_title">Ambient </string>
+    <string name="ambient_decor_summary">Ambient Customizations </string>
 
     <!-- X Ambient Doze -->
     <string name="doze_sensor_title">Sensor based</string>
