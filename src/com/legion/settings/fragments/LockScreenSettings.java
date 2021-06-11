@@ -40,7 +40,6 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.settings.Utils;
 import com.legion.settings.utils.Utils;
 import com.legion.settings.preferences.CustomSeekBarPreference;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
