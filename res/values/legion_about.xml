@@ -18,7 +18,7 @@
 
      <string name="about_legion">About</string>
      <string name="about_info">About Us</string>
-     <string name="about_info_summary">LegionOS is just another rom which will be concentrating on features as well as battery and also on performance , It is Based On AOSP and we have taken features from many roms and packed it here which makes legion unique and different</string>
+     <string name="about_info_summary">LegionOS focuses on functional and modern features while not comprimising on perfomance and battery life. LegionOS is based on AOSP and we have picked many features from other ROMS, while sticking to our design phylosophy making our ROM different and unique</string>
      <string name="dev_info">About LegionOS</string>
      <string name="devs_header">Meet Our Team</string>
      <string name="founder_lead">Dr. Raj KAle</string>
@@ -31,7 +31,7 @@
      <string name="core3_description">Core Developer aka Web designer</string>
      <string name="social_header">#Lets Go!</string>
      <string name="legion_web">Website</string>
-     <string name="legion_web_description">LegionOS website for Infos and more.</string>
+     <string name="legion_web_description">LegionOS website for downloads,screenshots and more.</string>
      <string name="legion_web_link">https://project-legionos.github.io/</string>
      <string name="legion_telegram">Telegram</string>
      <string name="legion_telegram_description">LegionOS Channel.</string>
