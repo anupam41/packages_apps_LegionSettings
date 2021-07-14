@@ -87,7 +87,6 @@ public class LegionSettings extends SettingsPreferenceFragment implements View.O
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		    getActivity().getActionBar().hide();
-                    getActivity().getWindow().setStatusBarColor(Color.TRANSPARENT);
 
        return inflater.inflate(R.layout.legion_settings, container, false);
     }
