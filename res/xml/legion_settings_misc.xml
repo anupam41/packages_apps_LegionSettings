@@ -36,4 +36,10 @@
             android:summary="@string/allow_signature_fake_summary"
             android:defaultValue="false" />
 
+		<Preference
+            android:key="ps_cat"
+	    settings:iconSpaceReserved="false"
+            android:title="@string/powersave_title" 
+            android:summary="@string/powersave_summary"
+            android:fragment="com.legion.settings.fragments.PowerSaving"/>
 </PreferenceScreen>
