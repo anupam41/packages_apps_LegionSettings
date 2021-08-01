@@ -39,4 +39,5 @@
     <!-- FOD icon picker -->
     <color name="fod_item_background_stroke_color">#d6d6d6</color>
 
+    <color name="white">#FFF</color>
 </resources>

@@ -1066,4 +1066,15 @@
     <!-- Allow to suppress notifications sound/vibration if screen is ON -->
     <string name="notification_sound_vib_screen_on_title">Active screen notification</string>
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
+
+	<!-- Power Profiles -->
+	<string name="powersave_title">Power Saving</string>
+    <string name="power_profile">Battery saver profile</string>
+    <string name="power_profile_default">Default</string>
+    <string name="power_profile_light">Light</string>
+    <string name="power_profile_med">Moderate</string>
+    <string name="power_profile_high">High</string>
+    <string name="power_profile_ext">Extreme</string>
+    <string name="powersave_summary">Options to extend your battery life</string>
+
 </resources>
