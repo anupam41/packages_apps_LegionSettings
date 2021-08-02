@@ -39,6 +39,11 @@
         android:defaultValue="0xffffff"
         android:persistent="false" />
 
+    <ListPreference
+        android:key="android.theme.customization.custom_overlays"
+        android:title="@string/theme_customization_systemui_title"
+	settings:iconSpaceReserved="false"/>
+
     <com.legion.settings.preferences.SystemSettingListPreference
         android:key="switch_style"
 	settings:iconSpaceReserved="false"
