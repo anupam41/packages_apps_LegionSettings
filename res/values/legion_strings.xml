@@ -56,19 +56,6 @@
 
     <!-- Footer -->
     <string name="qs_settings_footer">Check Themeing category for more QS themeing customizations.</string> 
-        
-    <!-- Themes -->
-    <string name="theme_type_title">Base Themes</string>
-    <string name="theme_type_summary">Select theme</string>
-    <string name="theme_type_light">Light</string>
-    <string name="theme_type_pitch_black">Legion Dark</string>
-    <string name="theme_type_solarized_dark">Solarized Dark</string>
-    <string name="theme_type_baked_green">Baked Green</string>
-    <string name="theme_type_choco_x">Choco Colt</string>
-    <string name="theme_type_dark_grey">Dark Grey</string>
-    <string name="theme_type_du_pitchblack">Pitch Black</string> 
-    <string name="theme_type_material_ocean">Material Ocean</string>
-    <string name="theme_type_xtended_clear">Xtended Clear</string>
 
     <!-- GVM -->
     <string name="theme_customization_statusbar_height_title">Statusbar height</string>

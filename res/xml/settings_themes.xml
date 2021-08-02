@@ -23,16 +23,6 @@
 	settings:iconSpaceReserved="false"
         android:layout="@layout/themes_header" />
 
-    <ListPreference
-        android:key="theme_switch"
-	settings:iconSpaceReserved="false"
-        android:title="@string/theme_type_title"
-	android:summary="%s"
-        android:dialogTitle="@string/theme_type_summary"
-        android:entries="@array/theme_type_titles"
-        android:entryValues="@array/theme_type_values"
-        android:defaultValue="1"/>
-
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="accent_color"
 	settings:iconSpaceReserved="false"

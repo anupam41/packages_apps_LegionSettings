@@ -72,7 +72,6 @@ public class Themes extends DashboardFragment implements
     private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
     private static final String GRADIENT_COLOR = "gradient_color";
     private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
-    private static final String PREF_THEME_SWITCH = "theme_switch";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -83,7 +82,6 @@ public class Themes extends DashboardFragment implements
 
     private ColorPickerPreference mThemeColor;
     private ColorPickerPreference mGradientColor;
-    private ListPreference mThemeSwitch;
     private CustomSeekBarPreference mQsPanelAlpha;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mUIStyle;
@@ -202,7 +200,6 @@ public class Themes extends DashboardFragment implements
 
         setupAccentPref();
         setupGradientPref();
-        setupThemeSwitchPref();
         getQsPanelAlphaPref();
         setHasOptionsMenu(true);
     }
@@ -253,98 +250,6 @@ public class Themes extends DashboardFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.QS_PANEL_BG_ALPHA, trueValue);
             return true;
-        } else if (preference == mThemeSwitch) {
-            String theme_switch = (String) objValue;
-            final Context context = getContext();
-            switch (theme_switch) {
-                case "1":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.XTENDED_CLEAR);
-                    break;
-                case "2":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.XTENDED_CLEAR);
-                    break;
-                case "3":
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.XTENDED_CLEAR);
-                    break;
-                case "4":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.XTENDED_CLEAR);
-                    break;
-                case "5":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.XTENDED_CLEAR);
-                    break;
-                case "6":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.XTENDED_CLEAR);
-                    break;
-                case "7":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.XTENDED_CLEAR);
-                    break;
-                case "8":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.XTENDED_CLEAR);
-                    break;
-                case "9":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.BAKED_GREEN);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.CHOCO_X);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.DARK_GREY);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.MATERIAL_OCEAN);
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.XTENDED_CLEAR);
-                    break;
-            }
-            try {
-                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
             } else if (preference == mPanelBg) {
                 String panelbg = (String) objValue;
                 int panelBgValue = Integer.parseInt(panelbg);
@@ -403,45 +308,6 @@ public class Themes extends DashboardFragment implements
         mQsPanelAlpha.setOnPreferenceChangeListener(this);
     }
 
-    private void setupThemeSwitchPref() {
-        mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
-        mThemeSwitch.setOnPreferenceChangeListener(this);
-        if (LegionUtils.isThemeEnabled("com.android.theme.xtendedclear.system")) {
-            mThemeSwitch.setValue("9");
-        } else if (LegionUtils.isThemeEnabled("com.android.theme.darkgrey.system")) {
-            mThemeSwitch.setValue("7");
-        } else if (LegionUtils.isThemeEnabled("com.android.theme.pitchblack.system")) {
-            mThemeSwitch.setValue("6");
-        } else if (LegionUtils.isThemeEnabled("com.android.theme.materialocean.system")) {
-            mThemeSwitch.setValue("8");
-        } else if (LegionUtils.isThemeEnabled("com.android.theme.chocox.system")) {
-            mThemeSwitch.setValue("5");
-        } else if (LegionUtils.isThemeEnabled("com.android.theme.bakedgreen.system")) {
-            mThemeSwitch.setValue("4");
-        } else if (LegionUtils.isThemeEnabled("com.android.theme.solarizeddark.system")) {
-            mThemeSwitch.setValue("3");
-        } else if (mUiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES) {
-            mThemeSwitch.setValue("2");
-        } else {
-            mThemeSwitch.setValue("1");
-        }
-    }
-
-    private void handleBackgrounds(Boolean state, Context context, int mode, String[] overlays) {
-        if (context != null) {
-            Objects.requireNonNull(context.getSystemService(UiModeManager.class))
-                    .setNightMode(mode);
-        }
-        for (int i = 0; i < overlays.length; i++) {
-            String background = overlays[i];
-            try {
-                mOverlayService.setEnabled(background, state, USER_SYSTEM);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     private String getOverlayName(String[] overlays) {
         String overlayName = null;
         for (int i = 0; i < overlays.length; i++) {
@@ -453,7 +319,7 @@ public class Themes extends DashboardFragment implements
         return overlayName;
     }
 
-private int getOverlayPosition(String[] overlays) {
+    private int getOverlayPosition(String[] overlays) {
         int position = -1;
         for (int i = 0; i < overlays.length; i++) {
             String overlay = overlays[i];
@@ -497,15 +363,6 @@ private int getOverlayPosition(String[] overlays) {
 
     private void resetValues() {
         final Context context = getContext();
-        mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
-        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK);
-        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.BAKED_GREEN);
-        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.CHOCO_X);
-        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.PITCH_BLACK);
-        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.DARK_GREY);
-        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.MATERIAL_OCEAN);
-        handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.XTENDED_CLEAR);
-        setupThemeSwitchPref();
         mGradientColor = (ColorPickerPreference) findPreference(GRADIENT_COLOR);
         SystemProperties.set(GRADIENT_COLOR_PROP, "-1");
 	mGradientColor.setNewPreviewColor(DEFAULT);
