@@ -42,7 +42,7 @@
     <ListPreference
         android:key="android.theme.customization.custom_overlays"
         android:title="@string/theme_customization_systemui_title"
-	settings:iconSpaceReserved="false"/>
+        settings:iconSpaceReserved="false" />
 
     <com.legion.settings.preferences.SystemSettingListPreference
         android:key="switch_style"
@@ -76,6 +76,16 @@
         android:entries="@array/ui_style_selector_entries"
         android:entryValues="@array/ui_style_selector_values"
         android:persistent="false" />
+
+    <ListPreference
+	android:key="android.theme.customization.signal_icon"
+        settings:iconSpaceReserved="false"
+        android:title="@string/custom_signal_bar_title" />
+
+        <ListPreference
+            android:key="android.theme.customization.wifi_icon"
+        settings:iconSpaceReserved="false"
+            android:title="@string/custom_wifi_bar_title" />
 
     <com.legion.settings.preferences.SystemSettingSwitchPreference 
         android:key="settings_spacer" 

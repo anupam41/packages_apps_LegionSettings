@@ -221,6 +221,10 @@ public class Themes extends DashboardFragment implements
                 "android.theme.customization.icon_pack.android"));
         controllers.add(new CustomOverlayPreferenceController(context,
                 "android.theme.customization.custom_overlays"));
+		controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.signal_icon"));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.wifi_icon"));
         return controllers;
     }
 
