@@ -107,4 +107,10 @@
          android:summary="%s"
          android:defaultValue="0"/>
 
+    <com.legion.settings.preferences.SystemSettingSwitchPreference
+        android:key="data_disabled_icon"
+            settings:iconSpaceReserved="false"
+        android:title="@string/data_disabled_icon_title"
+        android:summary="@string/data_disabled_icon_summary"
+        android:defaultValue="true"/>
 </PreferenceScreen>
