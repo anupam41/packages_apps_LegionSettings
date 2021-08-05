@@ -32,11 +32,10 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
+import com.android.settings.R;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
-
-import com.android.settings.R;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -69,20 +68,17 @@ public class Themes extends DashboardFragment implements
     private static final String PREF_PANEL_BG = "panel_bg";
     private static final String QS_HEADER_STYLE = "qs_header_style";
     private static final String QS_TILE_STYLE = "qs_tile_style";
-    private static final String ACCENT_COLOR = "accent_color";
-    private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
-    private static final String GRADIENT_COLOR = "gradient_color";
-    private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
+    private static final String PREF_RGB_ACCENT_PICKER_DARK = "rgb_accent_picker_dark";
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
     private static final int MENU_RESET = Menu.FIRST;
 
     static final int DEFAULT = 0xff1a73e8;
 
+    private Context mContext;
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
-    private ColorPickerPreference mThemeColor;
-    private ColorPickerPreference mGradientColor;
+    private ColorPickerPreference rgbAccentPickerDark;
     private CustomSeekBarPreference mQsPanelAlpha;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mUIStyle;
@@ -107,6 +103,7 @@ public class Themes extends DashboardFragment implements
 //        addPreferencesFromResource(R.xml.settings_themes);
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+        mContext =  getActivity();
 
         mUIStyle = (ListPreference) findPreference(UI_STYLE);
         int UIStyle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -199,12 +196,18 @@ public class Themes extends DashboardFragment implements
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
-        setupAccentPref();
-        setupGradientPref();
-        getQsPanelAlphaPref();
-        setHasOptionsMenu(true);
-    }
+        rgbAccentPickerDark = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER_DARK);
+        String colorValDark = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                Settings.Secure.ACCENT_DARK, UserHandle.USER_CURRENT);
+        int colorDark = (colorValDark == null)
+                ? DEFAULT
+                : Color.parseColor("#" + colorValDark);
+        rgbAccentPickerDark.setNewPreviewColor(colorDark);
+        rgbAccentPickerDark.setOnPreferenceChangeListener(this);
 
+        setHasOptionsMenu(true);
+        getQsPanelAlphaPref();
+    }
     @Override
     protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
         return buildPreferenceControllers(context, getSettingsLifecycle(), this);
@@ -231,20 +234,12 @@ public class Themes extends DashboardFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mThemeColor) {
-            int color = (Integer) objValue;
-            String hexColor = String.format("%08X", (0xFFFFFFFF & color));
-            SystemProperties.set(ACCENT_COLOR_PROP, hexColor);
-            try {
-                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
-        } else if (preference == mGradientColor) {
-            int color = (Integer) objValue;
-            String hexColor = String.format("%08X", (0xFFFFFFFF & color));
-            SystemProperties.set(GRADIENT_COLOR_PROP, hexColor);
+	if (preference == rgbAccentPickerDark) {
+            int colorDark = (Integer) objValue;
+            String hexColor = String.format("%08X", (0xFFFFFFFF & colorDark));
+            Settings.Secure.putStringForUser(mContext.getContentResolver(),
+                        Settings.Secure.ACCENT_DARK,
+                        hexColor, UserHandle.USER_CURRENT);
             try {
                  mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
@@ -285,26 +280,6 @@ public class Themes extends DashboardFragment implements
             mQsTileStyle.setSummary(mQsTileStyle.getEntries()[qsTileStyleValue]);
         }
         return true;
-    }
-
-    private void setupAccentPref() {
-        mThemeColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
-        String colorVal = SystemProperties.get(ACCENT_COLOR_PROP, "-1");
-        int color = "-1".equals(colorVal)
-                ? DEFAULT
-                : Color.parseColor("#" + colorVal);
-        mThemeColor.setNewPreviewColor(color);
-        mThemeColor.setOnPreferenceChangeListener(this);
-    }
-
-    private void setupGradientPref() {
-        mGradientColor = (ColorPickerPreference) findPreference(GRADIENT_COLOR);
-        String colorVal = SystemProperties.get(GRADIENT_COLOR_PROP, "-1");
-        int color = "-1".equals(colorVal)
-                ? DEFAULT
-                : Color.parseColor("#" + colorVal);
-        mGradientColor.setNewPreviewColor(color);
-        mGradientColor.setOnPreferenceChangeListener(this);
     }
 
     private void getQsPanelAlphaPref() {
@@ -370,18 +345,8 @@ public class Themes extends DashboardFragment implements
 
     private void resetValues() {
         final Context context = getContext();
-        mGradientColor = (ColorPickerPreference) findPreference(GRADIENT_COLOR);
-        SystemProperties.set(GRADIENT_COLOR_PROP, "-1");
-	mGradientColor.setNewPreviewColor(DEFAULT);
-        mThemeColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
-	SystemProperties.set(ACCENT_COLOR_PROP, "-1");
-        mThemeColor.setNewPreviewColor(DEFAULT);
-        try {
-             mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
-             mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-             mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-        } catch (RemoteException ignored) {
-        }
+        rgbAccentPickerDark = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER_DARK);
+        rgbAccentPickerDark.setNewPreviewColor(DEFAULT);
     }
 
     @Override
