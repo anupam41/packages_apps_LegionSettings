@@ -32,11 +32,10 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
+import com.android.settings.R;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
-
-import com.android.settings.R;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -56,6 +55,7 @@ import com.android.settings.display.OverlayCategoryPreferenceController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.legion.settings.preferences.RGBAccentPickerPreferenceController;
 import com.legion.settings.preferences.CustomSeekBarPreference;
 import com.legion.settings.preferences.CustomOverlayPreferenceController;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
@@ -69,20 +69,15 @@ public class Themes extends DashboardFragment implements
     private static final String PREF_PANEL_BG = "panel_bg";
     private static final String QS_HEADER_STYLE = "qs_header_style";
     private static final String QS_TILE_STYLE = "qs_tile_style";
-    private static final String ACCENT_COLOR = "accent_color";
-    private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
-    private static final String GRADIENT_COLOR = "gradient_color";
-    private static final String GRADIENT_COLOR_PROP = "persist.sys.theme.gradientcolor";
+
     private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
-    private static final int MENU_RESET = Menu.FIRST;
 
     static final int DEFAULT = 0xff1a73e8;
 
+    private Context mContext;
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
-    private ColorPickerPreference mThemeColor;
-    private ColorPickerPreference mGradientColor;
     private CustomSeekBarPreference mQsPanelAlpha;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mUIStyle;
@@ -107,6 +102,7 @@ public class Themes extends DashboardFragment implements
 //        addPreferencesFromResource(R.xml.settings_themes);
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+        mContext =  getActivity();
 
         mUIStyle = (ListPreference) findPreference(UI_STYLE);
         int UIStyle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -199,12 +195,8 @@ public class Themes extends DashboardFragment implements
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
-        setupAccentPref();
-        setupGradientPref();
         getQsPanelAlphaPref();
-        setHasOptionsMenu(true);
     }
-
     @Override
     protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
         return buildPreferenceControllers(context, getSettingsLifecycle(), this);
@@ -225,33 +217,14 @@ public class Themes extends DashboardFragment implements
                 "android.theme.customization.signal_icon"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.wifi_icon"));
+        controllers.add(new RGBAccentPickerPreferenceController(context));
         return controllers;
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mThemeColor) {
-            int color = (Integer) objValue;
-            String hexColor = String.format("%08X", (0xFFFFFFFF & color));
-            SystemProperties.set(ACCENT_COLOR_PROP, hexColor);
-            try {
-                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
-        } else if (preference == mGradientColor) {
-            int color = (Integer) objValue;
-            String hexColor = String.format("%08X", (0xFFFFFFFF & color));
-            SystemProperties.set(GRADIENT_COLOR_PROP, hexColor);
-            try {
-                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
-        } else if (preference == mQsPanelAlpha) {
+	if (preference == mQsPanelAlpha) {
             int bgAlpha = (Integer) objValue;
             int trueValue = (int) (((double) bgAlpha / 100) * 255);
             Settings.System.putInt(getContentResolver(),
@@ -287,26 +260,6 @@ public class Themes extends DashboardFragment implements
         return true;
     }
 
-    private void setupAccentPref() {
-        mThemeColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
-        String colorVal = SystemProperties.get(ACCENT_COLOR_PROP, "-1");
-        int color = "-1".equals(colorVal)
-                ? DEFAULT
-                : Color.parseColor("#" + colorVal);
-        mThemeColor.setNewPreviewColor(color);
-        mThemeColor.setOnPreferenceChangeListener(this);
-    }
-
-    private void setupGradientPref() {
-        mGradientColor = (ColorPickerPreference) findPreference(GRADIENT_COLOR);
-        String colorVal = SystemProperties.get(GRADIENT_COLOR_PROP, "-1");
-        int color = "-1".equals(colorVal)
-                ? DEFAULT
-                : Color.parseColor("#" + colorVal);
-        mGradientColor.setNewPreviewColor(color);
-        mGradientColor.setOnPreferenceChangeListener(this);
-    }
-
     private void getQsPanelAlphaPref() {
         mQsPanelAlpha = (CustomSeekBarPreference) findPreference(KEY_QS_PANEL_ALPHA);
         int qsPanelAlpha = Settings.System.getInt(getActivity().getContentResolver(),
@@ -335,53 +288,6 @@ public class Themes extends DashboardFragment implements
             }
         }
         return position;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(0, MENU_RESET, 0, R.string.reset)
-                .setIcon(R.drawable.ic_menu_reset)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case MENU_RESET:
-                resetToDefault();
-                return true;
-            default:
-                return super.onContextItemSelected(item);
-        }
-    }
-
-    private void resetToDefault() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        alertDialog.setTitle(R.string.theme_option_reset_title);
-        alertDialog.setMessage(R.string.theme_option_reset_message);
-        alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                resetValues();
-            }
-        });
-        alertDialog.setNegativeButton(R.string.cancel, null);
-        alertDialog.create().show();
-    }
-
-    private void resetValues() {
-        final Context context = getContext();
-        mGradientColor = (ColorPickerPreference) findPreference(GRADIENT_COLOR);
-        SystemProperties.set(GRADIENT_COLOR_PROP, "-1");
-	mGradientColor.setNewPreviewColor(DEFAULT);
-        mThemeColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
-	SystemProperties.set(ACCENT_COLOR_PROP, "-1");
-        mThemeColor.setNewPreviewColor(DEFAULT);
-        try {
-             mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
-             mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-             mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-        } catch (RemoteException ignored) {
-        }
     }
 
     @Override

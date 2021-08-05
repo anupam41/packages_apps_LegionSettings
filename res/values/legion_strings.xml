@@ -85,10 +85,8 @@
     <!-- RGB Pickers -->
     <string name="themes_color">Theming</string>
     <string name="themes_summary">Theming section</string>
-    <string name="accent_color">Accent picker</string>
-    <string name="accent_summary">System wide accent maker</string> 
-    <string name="gradient_color">Gradient picker</string>
-    <string name="gradient_summary">Gradient effect maker</string>
+    <string name="accent_title">Accent Picker</string>
+    <string name="accent_summary">Choose the accent color yourself</string>
 
     <!-- Theme Reset -->
     <string name="theme_option_reset_title">Reset Theme Options</string>
