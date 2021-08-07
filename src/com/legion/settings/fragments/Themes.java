@@ -57,6 +57,7 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.legion.settings.preferences.CustomSeekBarPreference;
 import com.legion.settings.preferences.QsColorPreferenceController;
+import com.legion.settings.preferences.DarkUIPreferenceController;
 import com.android.settings.display.darkmode.CustomOverlayPreferenceController;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
 
@@ -227,6 +228,7 @@ public class Themes extends DashboardFragment implements
                 "android.theme.customization.signal_icon"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.wifi_icon"));
+	controllers.add(new DarkUIPreferenceController(context));
         return controllers;
     }
 

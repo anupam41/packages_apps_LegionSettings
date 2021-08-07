@@ -1043,4 +1043,5 @@
     <string name="monet_category">Monet Theming</string>
     <string name="system_color_category">System Colors</string>
     <string name="system_ui_category">System UI</string>
+    <string name="dark_mode_summary">Dark UI Mode</string>
 </resources>
