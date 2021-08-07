@@ -59,7 +59,7 @@ import com.legion.settings.preferences.RGBAccentPickerPreferenceController;
 import com.legion.settings.preferences.RGBGradientPickerPreferenceController;
 import com.legion.settings.preferences.CustomSeekBarPreference;
 import com.legion.settings.preferences.QsColorPreferenceController;
-import com.legion.settings.preferences.CustomOverlayPreferenceController;
+import com.android.settings.display.darkmode.CustomOverlayPreferenceController;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
 
 public class Themes extends DashboardFragment implements
