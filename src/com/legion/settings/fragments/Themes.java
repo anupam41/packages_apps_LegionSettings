@@ -70,7 +70,6 @@ public class Themes extends DashboardFragment implements
     private static final String QS_HEADER_STYLE = "qs_header_style";
     private static final String QS_TILE_STYLE = "qs_tile_style";
     private static final String PREF_RGB_ACCENT_PICKER_DARK = "rgb_accent_picker_dark";
-    private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
     private static final int MENU_RESET = Menu.FIRST;
 
     static final int DEFAULT = 0xff1a73e8;
@@ -80,7 +79,6 @@ public class Themes extends DashboardFragment implements
     private UiModeManager mUiModeManager;
 
     private ColorPickerPreference rgbAccentPickerDark;
-    private CustomSeekBarPreference mQsPanelAlpha;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mUIStyle;
     private ListPreference mPanelBg;
@@ -207,7 +205,6 @@ public class Themes extends DashboardFragment implements
         rgbAccentPickerDark.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
-        getQsPanelAlphaPref();
     }
     @Override
     protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
@@ -248,12 +245,6 @@ public class Themes extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
-        } else if (preference == mQsPanelAlpha) {
-            int bgAlpha = (Integer) objValue;
-            int trueValue = (int) (((double) bgAlpha / 100) * 255);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_PANEL_BG_ALPHA, trueValue);
-            return true;
             } else if (preference == mPanelBg) {
                 String panelbg = (String) objValue;
                 int panelBgValue = Integer.parseInt(panelbg);
@@ -282,14 +273,6 @@ public class Themes extends DashboardFragment implements
             mQsTileStyle.setSummary(mQsTileStyle.getEntries()[qsTileStyleValue]);
         }
         return true;
-    }
-
-    private void getQsPanelAlphaPref() {
-        mQsPanelAlpha = (CustomSeekBarPreference) findPreference(KEY_QS_PANEL_ALPHA);
-        int qsPanelAlpha = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.QS_PANEL_BG_ALPHA, 255);
-        mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
-        mQsPanelAlpha.setOnPreferenceChangeListener(this);
     }
 
     private String getOverlayName(String[] overlays) {

@@ -115,15 +115,16 @@
 	android:key="qs_category"
         settings:iconSpaceReserved="false"	
         android:title="@string/qs_themes_category_title" > 
-
-        <com.legion.settings.preferences.CustomSeekBarPreference
+ 
+        <!-- QS panel opacity -->
+        <com.legion.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_panel_bg_alpha"
+            settings:iconSpaceReserved="false"
             android:title="@string/qs_panel_bg_alpha_title"
             android:defaultValue="255"
             android:max="255"
             android:min="0"
-            settings:units=""
-	    settings:iconSpaceReserved="false" />
+            settings:units="" />
 
         <ListPreference
             android:key="brightness_slider_style"
