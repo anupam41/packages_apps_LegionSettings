@@ -57,7 +57,7 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.legion.settings.preferences.CustomSeekBarPreference;
 import com.legion.settings.preferences.QsColorPreferenceController;
-import com.legion.settings.preferences.CustomOverlayPreferenceController;
+import com.android.settings.display.darkmode.CustomOverlayPreferenceController;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
 
 public class Themes extends DashboardFragment implements
