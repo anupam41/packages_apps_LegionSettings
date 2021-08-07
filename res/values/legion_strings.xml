@@ -1040,4 +1040,7 @@
     <!-- Notification background opacity -->
     <string name="notification_alpha_title">Notification background alpha (experimental)</string>
 
+    <string name="monet_category">Monet Theming</string>
+    <string name="system_color_category">System Colors</string>
+    <string name="system_ui_category">System UI</string>
 </resources>

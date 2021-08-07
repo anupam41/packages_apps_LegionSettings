@@ -23,6 +23,10 @@
 	settings:iconSpaceReserved="false"
         android:layout="@layout/themes_header" />
 
+	<PreferenceCategory
+        android:key="monet_category"
+        android:title="@string/monet_category">
+		
         <com.legion.settings.preferences.SecureSettingSwitchPreference
             android:key="monet_engine"
             settings:iconSpaceReserved="false"
@@ -49,6 +53,36 @@
             android:defaultValue="16"
             settings:interval="1"/>
 
+        <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_fw"
+            android:title="@string/qs_panel_bg_use_fw_title"
+            android:summary="@string/qs_panel_bg_use_fw_summary"
+            android:defaultValue="true"
+            settings:iconSpaceReserved="false"
+            android:disableDependentsState="true" />
+
+        <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="sysui_colors_active"
+            android:title="@string/sysui_colors_active_title"
+            android:summary="@string/sysui_colors_active_summary"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw"
+	    settings:iconSpaceReserved="false"
+            android:disableDependentsState="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="qs_panel_color"
+            android:title="@string/qs_panel_bg_color_title"
+            android:defaultValue="0xFFFFFFFF"
+            android:persistent="false"
+	    settings:iconSpaceReserved="false"
+            android:dependency="sysui_colors_active" />
+            
+  </PreferenceCategory>
+	<PreferenceCategory
+        android:key="system_color_category"
+        android:title="@string/system_color_category">
+		
     <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="rgb_accent_picker_dark"
             android:title="@string/rgb_accent_picker_title_dark"
@@ -61,56 +95,8 @@
         android:title="@string/theme_customization_systemui_title"
         settings:iconSpaceReserved="false" />
 
-    <com.legion.settings.preferences.SystemSettingListPreference
-        android:key="switch_style"
-	settings:iconSpaceReserved="false"
-        android:title="@string/switch_style_title"
-        android:dialogTitle="@string/switch_style_title"
-        android:entries="@array/switch_style_entries"
-        android:entryValues="@array/switch_style_values"
-        android:summary="%s"
-        android:defaultValue="0" />
-
-    <ListPreference
-        android:key="android.theme.customization.font"
-	settings:iconSpaceReserved="false"
-        android:title="@string/theme_customization_font_title"/>
-
-    <ListPreference
-        android:key="android.theme.customization.adaptive_icon_shape"
-	settings:iconSpaceReserved="false"
-        android:title="@string/theme_customization_icon_shape_title"/>
-
-    <ListPreference
-        android:key="android.theme.customization.icon_pack.android"
-	settings:iconSpaceReserved="false"
-        android:title="@string/theme_customization_sysui_icon_title"/>
-
-    <ListPreference
-        android:key="ui_style"
-	settings:iconSpaceReserved="false"
-        android:title="@string/ui_style_title"
-        android:entries="@array/ui_style_selector_entries"
-        android:entryValues="@array/ui_style_selector_values"
-        android:persistent="false" />
-
-    <ListPreference
-	android:key="android.theme.customization.signal_icon"
-        settings:iconSpaceReserved="false"
-        android:title="@string/custom_signal_bar_title" />
-
-        <ListPreference
-            android:key="android.theme.customization.wifi_icon"
-        settings:iconSpaceReserved="false"
-            android:title="@string/custom_wifi_bar_title" />
-
-    <com.legion.settings.preferences.SystemSettingSwitchPreference 
-        android:key="settings_spacer" 
-		settings:iconSpaceReserved="false"
-        android:title="@string/enable_oneui" 
-        android:summary="@string/enable_oneui_summary" 
-        android:defaultValue="true" />
-
+  </PreferenceCategory>
+  
     <PreferenceCategory
 	android:key="qs_category"
         settings:iconSpaceReserved="false"	
@@ -187,30 +173,61 @@
             android:summary="@string/qs_bg_use_disco_summary"
             android:defaultValue="false" />
 
-        <com.legion.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_panel_bg_use_fw"
-            android:title="@string/qs_panel_bg_use_fw_title"
-            android:summary="@string/qs_panel_bg_use_fw_summary"
-            android:defaultValue="true"
-            settings:iconSpaceReserved="false"
-            android:disableDependentsState="true" />
+    </PreferenceCategory>
+    
+    	<PreferenceCategory
+        android:key="system_ui_category"
+        android:title="@string/system_ui_category">
+		
+    <com.legion.settings.preferences.SystemSettingListPreference
+        android:key="switch_style"
+	settings:iconSpaceReserved="false"
+        android:title="@string/switch_style_title"
+        android:dialogTitle="@string/switch_style_title"
+        android:entries="@array/switch_style_entries"
+        android:entryValues="@array/switch_style_values"
+        android:summary="%s"
+        android:defaultValue="0" />
 
-        <com.legion.settings.preferences.SystemSettingSwitchPreference
-            android:key="sysui_colors_active"
-            android:title="@string/sysui_colors_active_title"
-            android:summary="@string/sysui_colors_active_summary"
-            android:defaultValue="false"
-            android:dependency="qs_panel_bg_use_fw"
-	    settings:iconSpaceReserved="false"
-            android:disableDependentsState="true" />
+    <ListPreference
+        android:key="android.theme.customization.font"
+	settings:iconSpaceReserved="false"
+        android:title="@string/theme_customization_font_title"/>
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="qs_panel_color"
-            android:title="@string/qs_panel_bg_color_title"
-            android:defaultValue="0xFFFFFFFF"
-            android:persistent="false"
-	    settings:iconSpaceReserved="false"
-            android:dependency="sysui_colors_active" />
+    <ListPreference
+        android:key="android.theme.customization.adaptive_icon_shape"
+	settings:iconSpaceReserved="false"
+        android:title="@string/theme_customization_icon_shape_title"/>
+
+    <ListPreference
+        android:key="android.theme.customization.icon_pack.android"
+	settings:iconSpaceReserved="false"
+        android:title="@string/theme_customization_sysui_icon_title"/>
+
+    <ListPreference
+        android:key="ui_style"
+	settings:iconSpaceReserved="false"
+        android:title="@string/ui_style_title"
+        android:entries="@array/ui_style_selector_entries"
+        android:entryValues="@array/ui_style_selector_values"
+        android:persistent="false" />
+
+    <ListPreference
+	android:key="android.theme.customization.signal_icon"
+        settings:iconSpaceReserved="false"
+        android:title="@string/custom_signal_bar_title" />
+
+        <ListPreference
+            android:key="android.theme.customization.wifi_icon"
+        settings:iconSpaceReserved="false"
+            android:title="@string/custom_wifi_bar_title" />
+
+    <com.legion.settings.preferences.SystemSettingSwitchPreference 
+        android:key="settings_spacer" 
+		settings:iconSpaceReserved="false"
+        android:title="@string/enable_oneui" 
+        android:summary="@string/enable_oneui_summary" 
+        android:defaultValue="true" />
 
     </PreferenceCategory>
 </PreferenceScreen>
