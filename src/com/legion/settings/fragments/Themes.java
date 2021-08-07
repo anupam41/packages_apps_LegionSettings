@@ -71,16 +71,12 @@ public class Themes extends DashboardFragment implements
     private static final String PREF_PANEL_BG = "panel_bg";
     private static final String QS_HEADER_STYLE = "qs_header_style";
     private static final String QS_TILE_STYLE = "qs_tile_style";
-
-    private static final String KEY_QS_PANEL_ALPHA = "qs_panel_alpha";
-
     static final int DEFAULT = 0xff1a73e8;
 
     private Context mContext;
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
-    private CustomSeekBarPreference mQsPanelAlpha;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mUIStyle;
     private ListPreference mPanelBg;
@@ -197,7 +193,6 @@ public class Themes extends DashboardFragment implements
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
-        getQsPanelAlphaPref();
     }
     @Override
     protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
@@ -228,13 +223,7 @@ public class Themes extends DashboardFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-	if (preference == mQsPanelAlpha) {
-            int bgAlpha = (Integer) objValue;
-            int trueValue = (int) (((double) bgAlpha / 100) * 255);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.QS_PANEL_BG_ALPHA, trueValue);
-            return true;
-            } else if (preference == mPanelBg) {
+	if (preference == mPanelBg) {
                 String panelbg = (String) objValue;
                 int panelBgValue = Integer.parseInt(panelbg);
                 mPanelBg.setValue(String.valueOf(panelBgValue));
@@ -262,14 +251,6 @@ public class Themes extends DashboardFragment implements
             mQsTileStyle.setSummary(mQsTileStyle.getEntries()[qsTileStyleValue]);
         }
         return true;
-    }
-
-    private void getQsPanelAlphaPref() {
-        mQsPanelAlpha = (CustomSeekBarPreference) findPreference(KEY_QS_PANEL_ALPHA);
-        int qsPanelAlpha = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.QS_PANEL_BG_ALPHA, 255);
-        mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
-        mQsPanelAlpha.setOnPreferenceChangeListener(this);
     }
 
     private String getOverlayName(String[] overlays) {
