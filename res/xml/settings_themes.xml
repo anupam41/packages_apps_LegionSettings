@@ -117,7 +117,7 @@
             android:key="notification_bg_alpha"
             android:title="@string/notification_alpha_title"
             android:defaultValue="255"
-            settings:iconSpaceReserved="false
+            settings:iconSpaceReserved="false"
             android:max="255"
             settings:min="0"
             settings:units="" />
