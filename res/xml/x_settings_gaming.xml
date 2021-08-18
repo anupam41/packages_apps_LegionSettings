@@ -125,17 +125,21 @@
             android:dependency="gaming_mode_enabled" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/gaming_mode_prevent_accidental_touch">
-
-        <com.legion.settings.preferences.SystemSettingSwitchPreference
-            android:key="gaming_mode_disable_gesture"
-            settings:iconSpaceReserved="false"
-            android:title="@string/gaming_mode_disable_gesture_title"
-            android:defaultValue="false"
-            android:dependency="gaming_mode_enabled" />
-
-    </PreferenceCategory>
+    <com.legion.settings.preferences.SystemSettingSwitchPreference
+        android:key="gaming_mode_disable_hw_keys"
+        settings:iconSpaceReserved="false"
+        android:title="@string/gaming_mode_hardware_keys_title"
+        android:summary="@string/gaming_mode_hardware_keys_summary"
+        android:defaultValue="false"
+        android:dependency="gaming_mode_enabled" />
+    
+    <com.legion.settings.preferences.SystemSettingSwitchPreference
+        android:key="gaming_mode_disable_gesture"
+        settings:iconSpaceReserved="false"
+        android:title="@string/gaming_mode_disable_gesture_title"
+        android:summary="@string/gaming_mode_disable_gesture_summary"
+        android:defaultValue="false"
+        android:dependency="gaming_mode_enabled" />
 
     <com.legion.settings.preferences.PackageListPreference
         android:key="gaming_mode_app_list"
