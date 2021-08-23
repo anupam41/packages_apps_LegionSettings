@@ -1043,4 +1043,8 @@
     <string name="monet_category">Monet Theming</string>
     <string name="system_color_category">System Colors</string>
     <string name="system_ui_category">System UI</string>
+
+    <!-- Allow to suppress notifications sound/vibration if screen is ON -->
+    <string name="notification_sound_vib_screen_on_title">Active screen notification</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
 </resources>
