@@ -1042,4 +1042,7 @@
     <!-- Notification background opacity -->
     <string name="notification_alpha_title">Notification background alpha (experimental)</string>
 
+    <!-- Allow to suppress notifications sound/vibration if screen is ON -->
+    <string name="notification_sound_vib_screen_on_title">Active screen notification</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
 </resources>
