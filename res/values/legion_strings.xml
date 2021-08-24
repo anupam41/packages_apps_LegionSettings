@@ -1008,21 +1008,9 @@
     <!-- Custom Wi-Fi bar icons -->
     <string name="custom_wifi_bar_title">Wi-Fi</string>
 
-    <string name="monet_0">Vibrant</string>
-    <string name="monet_1">Light Vibrant</string>
-    <string name="monet_2">Dark Vibrant</string>
-    <string name="monet_3">Dominant</string>
-    <string name="monet_4">Muted</string>
-    <string name="monet_5">Light Muted</string>
-    <string name="monet_6">Dark Muted</string>
-
-    <string name="monet_title">MonetWannabe</string>
+    <!-- Monet -->
+    <string name="monet_title">Monet</string>
     <string name="monet_summary">System Wide Accent Color based on Wallpaper</string>
-    <string name="monet_pallete_title">Pallete</string>
-    <string name="monet_pallete_summary">Color Modes.  \n(After Choosing you need to reapply the wallpaper for the changes to take affect).</string>
-    <string name="monet_accuracy">Monet Accuracy</string>
-    <string name="monet_accuracy_summary">The More Accurate the slower (Def 16)</string>
-
     <string name="qs_panel_bg_use_fw_title">Framework defaults</string>
     <string name="qs_panel_bg_use_fw_summary">Disable QS and scrim color customizations</string>
     <string name="qs_panel_bg_color_title">Background color</string>
