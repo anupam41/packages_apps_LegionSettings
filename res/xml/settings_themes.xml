@@ -65,11 +65,20 @@
         android:title="@string/system_color_category">
 		
     <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="rgb_accent_picker_dark"
-            android:title="@string/rgb_accent_picker_title_dark"
-            android:summary="@string/rgb_accent_picker_summary"
-            android:persistent="false"
-  	    settings:iconSpaceReserved="false" />
+        android:key="accent_color"
+	settings:iconSpaceReserved="false"
+        android:title="@string/accent_color"
+        android:summary="@string/accent_summary"
+        android:defaultValue="0xffffff"
+        android:persistent="false" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="gradient_color"
+	settings:iconSpaceReserved="false"
+        android:title="@string/gradient_color"
+        android:summary="@string/gradient_summary"
+        android:defaultValue="0xffffff"
+        android:persistent="false" />
 
     <ListPreference
         android:key="android.theme.customization.custom_overlays"
