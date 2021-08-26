@@ -131,12 +131,12 @@
 
         <ListPreference
             android:key="brightness_slider_style"
-	    settings:iconSpaceReserved="false"
+			settings:iconSpaceReserved="false"
             android:title="@string/brightness_slider_style_title"
             android:entries="@array/brightness_slider_style_selector_entries"
             android:entryValues="@array/brightness_slider_style_selector_values"
             android:persistent="false"
-            android:defaultValue="13" />
+            android:defaultValue="2" />
    
         <ListPreference
             android:key="panel_bg"
