@@ -52,6 +52,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.ComponentName;
 import com.google.android.material.card.MaterialCardView;
 
+import com.legion.settings.monet.SettingsColors;
+import android.graphics.drawable.PaintDrawable;
+
 import com.android.settings.R;
 import com.legion.settings.fragments.QuickSettings;
 import com.legion.settings.fragments.StatusBarSettings;
@@ -84,51 +87,84 @@ public class LegionSettings extends SettingsPreferenceFragment implements View.O
      MaterialCardView mlegionmiscCard;
      MaterialCardView mlegionaboutCard;
 
+    SettingsColors sc = new SettingsColors();
+    PaintDrawable bgrounded;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		    getActivity().getActionBar().hide();
 
        return inflater.inflate(R.layout.legion_settings, container, false);
+
+        getWindow().getDecorView().setBackgroundColor(sc.mainBG(this));
+        parent.setBackgroundColor(sc.mainBG(this));
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        getWindow().setStatusBarColor(sc.mainBG(this));
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        bgrounded =  new PaintDrawable(sc.mainBG(this));
         mlegionqsCard = (MaterialCardView) view.findViewById(R.id.legionqs_card);
+        Drawable background = mlegionqsCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionqsCard.setOnClickListener(this);
 
         mlegionstCard = (MaterialCardView) view.findViewById(R.id.legionst_card);
+        Drawable background = mlegionstCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionstCard.setOnClickListener(this);
 
         mlegionthemesCard = (MaterialCardView) view.findViewById(R.id.legionthemes_card);
+        Drawable background = mlegionthemesCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionthemesCard.setOnClickListener(this);
 
         mlegionlockscreenCard = (MaterialCardView) view.findViewById(R.id.legionlockscreen_card);
+        Drawable background = mlegionlockscreenCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionlockscreenCard.setOnClickListener(this);
 
         mlegionnotificationCard = (MaterialCardView) view.findViewById(R.id.legionnotification_card);
+        Drawable background = mlegionnotificationCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionnotificationCard.setOnClickListener(this);
 
         mlegiongestureCard = (MaterialCardView) view.findViewById(R.id.legiongesture_card);
+        Drawable background = mlegiongestureCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegiongestureCard.setOnClickListener(this);
 
         mlegionnavbarCard = (MaterialCardView) view.findViewById(R.id.legionnavbar_card);
+        Drawable background = mlegionnavbarCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionnavbarCard.setOnClickListener(this);
 
         mlegionbuttonCard = (MaterialCardView) view.findViewById(R.id.legionbutton_card);
+        Drawable background = mlegionbuttonCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionbuttonCard.setOnClickListener(this);
 		
         mlegionpowermenuCard = (MaterialCardView) view.findViewById(R.id.legionpowermenu_card);
+        Drawable background = mlegionpowermenuCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionpowermenuCard.setOnClickListener(this);		
 
         mlegionanimationCard = (MaterialCardView) view.findViewById(R.id.legionanimation_card);
+        Drawable background = mlegionanimationCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionanimationCard.setOnClickListener(this);
 		
         mlegionmiscCard = (MaterialCardView) view.findViewById(R.id.legionmisc_card);
+        Drawable background = mlegionmiscCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionmiscCard.setOnClickListener(this);	
 
         mlegionaboutCard = (MaterialCardView) view.findViewById(R.id.legionabout_card);
+        Drawable background = mlegionaboutCard.getBackground();
+        background.setTint(sc.secBG(this));
         mlegionaboutCard.setOnClickListener(this);		
         }
 
@@ -149,7 +185,7 @@ public class LegionSettings extends SettingsPreferenceFragment implements View.O
                 FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
                 transaction1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 transaction1.replace(this.getId(), statusbarfragment);
-                transaction1.addToBackStack(null);
+               
                 transaction1.commit();
               
             } else if (id == R.id.legionthemes_card)
@@ -252,5 +288,13 @@ public class LegionSettings extends SettingsPreferenceFragment implements View.O
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+    }
+    public boolean isDarkM(){
+        UiModeManager mUiModeManager = this.getSystemService(UiModeManager.class);
+        if (mUiModeManager.getNightMode() != UiModeManager.MODE_NIGHT_NO){
+            return true;
+        } else{
+            return false;
+        }
     }
 }

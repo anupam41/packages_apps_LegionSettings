@@ -4,7 +4,6 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:background="?android:attr/colorPrimary"
 	android:layout_height="wrap_content"
 	android:title="@string/legion_settings_title"
 	tools:context="com.legion.settings.LegionSettings">
@@ -69,7 +68,7 @@
 			android:id="@+id/legionqs_card"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			app:cardBackgroundColor="?android:attr/colorPrimary"
+			
 			app:layout_constraintEnd_toStartOf="@id/legionst_card"
 			android:layout_marginEnd="10dp"
 			android:layout_marginStart="25dp"
@@ -117,7 +116,7 @@
 				android:id="@+id/legionst_card"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				app:cardBackgroundColor="?android:attr/colorPrimary"
+				
 				app:layout_constraintStart_toEndOf="@id/legionqs_card"
 				android:layout_marginStart="10dp"
 				android:layout_marginEnd="25dp"
@@ -165,7 +164,7 @@
 				android:id="@+id/legionthemes_card"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				app:cardBackgroundColor="?android:attr/colorPrimary"
+				
 				app:layout_constraintEnd_toStartOf="@id/legionlockscreen_card"
 				android:layout_marginEnd="10dp"
 				android:layout_marginTop="40dp"
@@ -215,7 +214,7 @@
 				android:id="@+id/legionlockscreen_card"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				app:cardBackgroundColor="?android:attr/colorPrimary"
+				
 				app:layout_constraintStart_toEndOf="@id/legionthemes_card"
 				android:layout_marginStart="10dp"
 				android:layout_marginTop="40dp"
@@ -263,7 +262,7 @@
 			android:id="@+id/legionnotification_card"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			app:cardBackgroundColor="?android:attr/colorPrimary"
+			
 			app:layout_constraintEnd_toStartOf="@id/legiongesture_card"
 			android:layout_marginEnd="10dp"
 			android:layout_marginTop="40dp"
@@ -311,7 +310,7 @@
 				android:id="@+id/legiongesture_card"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				app:cardBackgroundColor="?android:attr/colorPrimary"
+				
 				app:layout_constraintStart_toEndOf="@id/legionnotification_card"
 				android:layout_marginStart="10dp"
 				android:layout_marginTop="40dp"
@@ -359,7 +358,7 @@
 			android:id="@+id/legionnavbar_card"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			app:cardBackgroundColor="?android:attr/colorPrimary"
+			
 			app:layout_constraintEnd_toStartOf="@id/legionbutton_card"
 			android:layout_marginEnd="10dp"
 			android:layout_marginTop="40dp"
@@ -407,7 +406,7 @@
 				android:id="@+id/legionbutton_card"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				app:cardBackgroundColor="?android:attr/colorPrimary"
+				
 				app:layout_constraintStart_toEndOf="@id/legionnavbar_card"
 				android:layout_marginStart="10dp"
 				android:layout_marginTop="40dp"
@@ -454,7 +453,7 @@
 			    android:id="@+id/legionpowermenu_card"
 			    android:layout_width="0dp"
 			    android:layout_height="wrap_content"
-			    app:cardBackgroundColor="?android:attr/colorPrimary"
+			    
 			    app:layout_constraintEnd_toStartOf="@id/legionanimation_card"
 			    android:layout_marginEnd="10dp"
 			    android:layout_marginTop="40dp"
@@ -502,7 +501,7 @@
 				android:id="@+id/legionanimation_card"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				app:cardBackgroundColor="?android:attr/colorPrimary"
+				
 				app:layout_constraintStart_toEndOf="@id/legionpowermenu_card"
 				android:layout_marginStart="10dp"
 				android:layout_marginTop="40dp"
@@ -550,7 +549,7 @@
 			    android:id="@+id/legionmisc_card"
 			    android:layout_width="0dp"
 			    android:layout_height="wrap_content"
-			    app:cardBackgroundColor="?android:attr/colorPrimary"
+			    
 			    app:layout_constraintEnd_toStartOf="@id/legionabout_card"
 			    android:layout_marginEnd="10dp"
 			    android:layout_marginTop="40dp"
@@ -598,7 +597,7 @@
 				android:id="@+id/legionabout_card"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				app:cardBackgroundColor="?android:attr/colorPrimary"
+				
 				app:layout_constraintStart_toEndOf="@id/legionmisc_card"
 				android:layout_marginStart="10dp"
 				android:layout_marginTop="40dp"
