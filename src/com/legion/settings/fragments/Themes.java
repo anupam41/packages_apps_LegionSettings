@@ -70,6 +70,7 @@ public class Themes extends DashboardFragment implements
     private static final String QS_HEADER_STYLE = "qs_header_style";
     private static final String QS_TILE_STYLE = "qs_tile_style";
     private static final String PREF_RGB_ACCENT_PICKER_DARK = "rgb_accent_picker_dark";
+    private static final String PREF_RGB_GRADIENT_PICKER_DARK = "rgb_gradient_picker_dark";
     private static final int MENU_RESET = Menu.FIRST;
 
     static final int DEFAULT = 0xff1a73e8;
@@ -79,6 +80,7 @@ public class Themes extends DashboardFragment implements
     private UiModeManager mUiModeManager;
 
     private ColorPickerPreference rgbAccentPickerDark;
+    private ColorPickerPreference rgbGradientPickerDark;
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mUIStyle;
     private ListPreference mPanelBg;
@@ -196,13 +198,21 @@ public class Themes extends DashboardFragment implements
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         rgbAccentPickerDark = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER_DARK);
+        rgbGradientPickerDark = (ColorPickerPreference) findPreference(PREF_RGB_GRADIENT_PICKER_DARK);
         String colorValDark = Settings.Secure.getStringForUser(mContext.getContentResolver(),
                 Settings.Secure.ACCENT_DARK, UserHandle.USER_CURRENT);
+        String colorValDark = Settings.Secure.getStringForUser(mContext.getContentResolver(),
+                Settings.Secure.GRADIENT_DARK, UserHandle.USER_CURRENT);
         int colorDark = (colorValDark == null)
                 ? DEFAULT
                 : Color.parseColor("#" + colorValDark);
         rgbAccentPickerDark.setNewPreviewColor(colorDark);
         rgbAccentPickerDark.setOnPreferenceChangeListener(this);
+        int colorDark = (colorValDark == null)
+                ? Color.WHITE
+                : Color.parseColor("#" + colorValDark);
+        rgbGradientPickerDark.setNewPreviewColor(colorDark);
+        rgbGradientPickerDark.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -239,12 +249,25 @@ public class Themes extends DashboardFragment implements
             Settings.Secure.putStringForUser(mContext.getContentResolver(),
                         Settings.Secure.ACCENT_DARK,
                         hexColor, UserHandle.USER_CURRENT);
+
             try {
                  mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
+	    } else if (preference == rgbGradientPickerDark) {
+            int colorWhite = (Integer) objValue;
+            String hexColor = String.format("%08X", (0xFFFFFFFF & colorDark));
+            Settings.Secure.putStringForUser(mContext.getContentResolver(),
+                        Settings.Secure.GRADIENT_DARK,
+                        hexColor, UserHandle.USER_CURRENT);
+            try {
+                 mOverlayManager.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;
             } else if (preference == mPanelBg) {
                 String panelbg = (String) objValue;
                 int panelBgValue = Integer.parseInt(panelbg);
@@ -332,6 +355,8 @@ public class Themes extends DashboardFragment implements
         final Context context = getContext();
         rgbAccentPickerDark = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER_DARK);
         rgbAccentPickerDark.setNewPreviewColor(DEFAULT);
+        rgbGradientPickerDark = (ColorPickerPreference) findPreference(PREF_RGB_GRADIENT_PICKER_DARK);
+        rgbGradientPickerDark.setNewPreviewColor(DEFAULT);
     }
 
     @Override

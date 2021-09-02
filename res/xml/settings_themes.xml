@@ -90,6 +90,13 @@
             android:persistent="false"
   	    settings:iconSpaceReserved="false" />
 
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="rgb_gradient_picker_dark"
+            android:title="@string/rgb_gradient_picker_title_dark"
+            android:summary="@string/rgb_gradient_picker_summary"
+            android:persistent="false"
+  	    settings:iconSpaceReserved="false" />
+
     <ListPreference
         android:key="android.theme.customization.custom_overlays"
         android:title="@string/theme_customization_systemui_title"
