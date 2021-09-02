@@ -4,7 +4,6 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:background="?android:attr/colorPrimary"
 	android:layout_height="wrap_content"
 	android:title="@string/legion_settings_title"
 	tools:context="com.legion.settings.LegionSettings">
