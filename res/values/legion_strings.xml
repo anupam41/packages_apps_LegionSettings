@@ -1090,4 +1090,8 @@
     <string name="power_profile_ext">Extreme</string>
     <string name="powersave_summary">Options to extend your battery life</string>
 
+    <string name="system_color_category">System Colors</string>
+    <string name="system_ui_category">System UI</string>
+
+    <string name="dark_ui_mode_summary">Browse the dark theme options</string>
 </resources>

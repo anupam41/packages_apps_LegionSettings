@@ -23,8 +23,21 @@
 	settings:iconSpaceReserved="false"
         android:layout="@layout/themes_header" />
 
+	<PreferenceCategory
+        android:key="system_color_category"
+        android:title="@string/system_color_category">
+
+	<com.legion.settings.preferences.SystemSettingSwitchPreference
+	    android:key="use_wall_accent"
+            android:disableDependentsState="true"
+	    settings:iconSpaceReserved="false"
+            android:title="@string/use_wall_accent_string"
+            android:summary="@string/use_wall_accent_summary"
+            android:defaultValue="false" />
+
         <com.legion.settings.preferences.SystemSettingListPreference
             android:key="auto_accent_type"
+	    settings:iconSpaceReserved="false"
             android:title="@string/auto_accent_picker_title"
             android:entries="@array/auto_accent_picker_entries"
             android:summary="%s"
@@ -33,6 +46,7 @@
 
         <com.legion.settings.preferences.SystemSettingListPreference
             android:key="auto_gradient_type"
+	    settings:iconSpaceReserved="false"
             android:title="@string/auto_gradient_picker_title"
             android:entries="@array/auto_gradient_picker_entries"
             android:summary="%s"
@@ -41,8 +55,17 @@
 
          <com.legion.settings.preferences.WallAc
             android:key="wall"
+	    settings:iconSpaceReserved="false"
             android:layout="@layout/wallacpreview"
             android:selectable="false"/>
+
+        <Preference
+            android:key="dark_ui_mode"
+	    settings:iconSpaceReserved="false"
+            android:title="@string/dark_ui_mode"
+            android:summary="@string/dark_ui_mode_summary"
+            android:fragment="com.android.settings.display.darkmode.DarkModeSettingsFragment"
+            settings:controller="com.android.settings.display.DarkUIPreferenceController" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="accent_color"
@@ -56,14 +79,41 @@
     <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="gradient_color"
 	    settings:iconSpaceReserved="false"
+	    android:dependency="use_wall_accent"
             android:title="@string/gradient_title"
             android:defaultValue="0xfff3d324"
             android:persistent="false" />
 
-    <ListPreference
-        android:key="android.theme.customization.custom_overlays"
-        android:title="@string/theme_customization_systemui_title"
-        settings:iconSpaceReserved="false" />
+        <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_fw"
+            android:title="@string/qs_panel_bg_use_fw_title"
+            android:summary="@string/qs_panel_bg_use_fw_summary"
+            android:defaultValue="true"
+            settings:iconSpaceReserved="false"
+            android:disableDependentsState="true" />
+
+        <com.legion.settings.preferences.SystemSettingSwitchPreference
+            android:key="sysui_colors_active"
+            android:title="@string/sysui_colors_active_title"
+            android:summary="@string/sysui_colors_active_summary"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw"
+	    settings:iconSpaceReserved="false"
+            android:disableDependentsState="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="qs_panel_color"
+            android:title="@string/qs_panel_bg_color_title"
+            android:defaultValue="0xFFFFFFFF"
+            android:persistent="false"
+	    settings:iconSpaceReserved="false"
+            android:dependency="sysui_colors_active" />
+
+  </PreferenceCategory>
+    
+    	<PreferenceCategory
+        android:key="system_ui_category"
+        android:title="@string/system_ui_category">
 
     <com.legion.settings.preferences.SystemSettingListPreference
         android:key="switch_style"
@@ -117,10 +167,11 @@
 
     <com.legion.settings.preferences.SystemSettingSwitchPreference 
         android:key="settings_spacer" 
-		settings:iconSpaceReserved="false"
+	settings:iconSpaceReserved="false"
         android:title="@string/enable_oneui" 
         android:summary="@string/enable_oneui_summary" 
         android:defaultValue="true" />
+  </PreferenceCategory>
 
     <PreferenceCategory
 	android:key="qs_category"
@@ -149,7 +200,7 @@
 
         <ListPreference
             android:key="brightness_slider_style"
-			settings:iconSpaceReserved="false"
+	    settings:iconSpaceReserved="false"
             android:title="@string/brightness_slider_style_title"
             android:entries="@array/brightness_slider_style_selector_entries"
             android:entryValues="@array/brightness_slider_style_selector_values"
@@ -219,31 +270,6 @@
             android:title="@string/qs_bg_use_disco"
             android:summary="@string/qs_bg_use_disco_summary"
             android:defaultValue="false" />
-
-        <com.legion.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_panel_bg_use_fw"
-            android:title="@string/qs_panel_bg_use_fw_title"
-            android:summary="@string/qs_panel_bg_use_fw_summary"
-            android:defaultValue="true"
-            settings:iconSpaceReserved="false"
-            android:disableDependentsState="true" />
-
-        <com.legion.settings.preferences.SystemSettingSwitchPreference
-            android:key="sysui_colors_active"
-            android:title="@string/sysui_colors_active_title"
-            android:summary="@string/sysui_colors_active_summary"
-            android:defaultValue="false"
-            android:dependency="qs_panel_bg_use_fw"
-	    settings:iconSpaceReserved="false"
-            android:disableDependentsState="true" />
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="qs_panel_color"
-            android:title="@string/qs_panel_bg_color_title"
-            android:defaultValue="0xFFFFFFFF"
-            android:persistent="false"
-	    settings:iconSpaceReserved="false"
-            android:dependency="sysui_colors_active" />
 
     </PreferenceCategory>
 </PreferenceScreen>
