@@ -1003,7 +1003,7 @@
     <string name="monet_accuracy_summary">Όσο πιο ακριβής τόσο πιο αργός (προεπιλ. 16)</string>
 
     <string name="qs_panel_bg_use_fw_title">Προεπιλογή συστήματος</string>
-    <string name="qs_panel_bg_use_fw_summary">Απενεργοποιήστε τις προσαρμογές χρώματος γρηγ.ρυθμ.QS και scrim</string>
+    <string name="qs_panel_bg_use_fw_summary">Απενεργοποιήστε τις προσαρμογές χρώματος γρηγ.ρυθμ.QS και αψίδες</string>
     <string name="qs_panel_bg_color_title">Χρώμα παρασκηνίου</string>
     <string name="qs_panel_bg_color_summary">Αλλάξτε το χρώμα του πίνακα QS</string>
     <string name="qs_panel_bg_alpha_title">Παρασκήνιο τύπου Άλφα</string>
@@ -1022,5 +1022,13 @@
     <string name="monet_category">Θεματοποίηση τύπου Monet</string>
     <string name="system_color_category">Χρώματα συστήματος</string>
     <string name="system_ui_category">System UI</string>
+	
+    <!-- Allow to suppress notifications sound/vibration if screen is ON -->
+    <string name="notification_sound_vib_screen_on_title">Ειδοποίηση ενεργής οθόνης</string>
+    <string name="notification_sound_vib_screen_on_summary">Αναπαραγωγή ήχου και δόνησης για ειδοποιήσεις όταν η οθόνη είναι ενεργοποιημένη</string>
+	
+    <!-- Statusbar left_right padding -->
+    <string name="statusbar_left_padding">Κενό αριστερά της γραμμής κατάστασης</string>
+    <string name="statusbar_right_padding">Κενό δεξιά της γραμμής κατάστασης</string>
 
 </resources>
