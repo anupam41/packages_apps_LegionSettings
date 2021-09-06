@@ -23,10 +23,10 @@
 	   android:layout_width="match_parent"
 	   android:layout_height="wrap_content"
 	   android:gravity="center"
-	   android:paddingTop="100dp"
-	   android:paddingBottom="100dp"
+	   android:paddingTop="60dp"
+	   android:paddingBottom="60dp"
 	   android:text="@string/gestures_title"
-	   android:textColor="?android:attr/textColorPrimary"
+	   android:textColor="?android:attr/colorAccent"
 	   android:textSize="28sp"
 	   android:textStyle="bold">
 	</TextView>

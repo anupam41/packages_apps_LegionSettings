@@ -61,7 +61,7 @@ import com.legion.settings.preferences.CustomSeekBarPreference;
 import com.legion.settings.preferences.QsColorPreferenceController;
 import com.android.settings.display.darkmode.CustomOverlayPreferenceController;
 import com.legion.settings.preferences.SystemSettingSwitchPreference;
-
+import com.legion.settings.preferences.SecureSettingSwitchPreference;
 public class Themes extends DashboardFragment implements
         OnPreferenceChangeListener, Indexable {
 
@@ -231,7 +231,7 @@ public class Themes extends DashboardFragment implements
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mUniversalDisco) {
-            boolean value = (Boolean) newValue;
+            boolean value = (Boolean) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.Secure.UNIVERSAL_DISCO, value ? 1 : 0);
             LegionUtils.showSystemUiRestartDialog(getContext());
