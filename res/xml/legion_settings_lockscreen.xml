@@ -43,6 +43,13 @@
         android:summary="@string/lockscreen_hide_shortcuts_summary"
         android:defaultValue="false" />
 
+    <com.legion.settings.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_status_bar"
+        settings:iconSpaceReserved="false"
+        android:title="@string/lockscreen_status_bar_title"
+        android:summary="@string/lockscreen_status_bar_summary"
+        android:defaultValue="true" />
+
         <!-- Ambient Decor -->
         <PreferenceScreen
         android:key="ambient_category"

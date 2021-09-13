@@ -228,6 +228,10 @@
     <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
     <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
 
+    <!-- Show Statusbar on Lockscreen -->
+    <string name="lockscreen_status_bar_title">Status bar</string>
+    <string name="lockscreen_status_bar_summary">Show status bar on lockscreen</string>
+
     <!-- Double Tap gestures -->
     <string name="doubletap_gestures_title">Double tap gestures</string>
     <string name="double_tap_sleep_gesture_title">Double tap to sleep</string>
