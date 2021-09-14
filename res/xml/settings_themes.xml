@@ -165,12 +165,6 @@
         settings:iconSpaceReserved="false"
             android:title="@string/custom_wifi_bar_title" />
 
-    <com.legion.settings.preferences.SystemSettingSwitchPreference 
-        android:key="settings_spacer" 
-	settings:iconSpaceReserved="false"
-        android:title="@string/enable_oneui" 
-        android:summary="@string/enable_oneui_summary" 
-        android:defaultValue="true" />
   </PreferenceCategory>
 
     <PreferenceCategory
