@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.legion.settings.preference;
+package com.legion.settings.preferences;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -39,8 +39,8 @@ import com.android.settings.R;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-import com.legion.settings.preference.PackageListAdapter;
-import com.legion.settings.preference.PackageListAdapter.PackageItem;
+import com.legion.settings.preferences.PackageListAdapter;
+import com.legion.settings.preferences.PackageListAdapter.PackageItem;
 
 public class PackageListPreference extends PreferenceCategory implements
         Preference.OnPreferenceClickListener {

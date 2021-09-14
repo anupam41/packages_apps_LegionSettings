@@ -23,7 +23,6 @@ import android.os.UserHandle;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.text.format.DateFormat;
-import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 
 import androidx.preference.ListPreference;
@@ -46,7 +45,6 @@ import java.util.List;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalTime;
 
-@SearchIndexable
 public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
@@ -122,6 +120,11 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 	}
 
     @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        return false;
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         updateSleepModeSummary();
@@ -137,21 +140,4 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.LEGION_SETTINGS;
     }
-
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(
-                        Context context, boolean enabled) {
-                    final SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.legion_settings_misc;
-                    return Arrays.asList(sir);
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    final List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-            };
 }

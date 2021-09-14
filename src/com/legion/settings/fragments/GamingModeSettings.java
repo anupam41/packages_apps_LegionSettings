@@ -1,4 +1,4 @@
-c/*
+/*
  * Copyright (C) 2020 The exTHmUI Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,9 +32,9 @@ import com.android.internal.util.hwkeys.ActionUtils;
 
 import java.util.ArrayList;
 
-import com.legion.settings.preference.PackageListPreference;
+import com.legion.settings.preferences.PackageListPreference;
 
-import com.colt.enigma.preference.SystemSettingSwitchPreference;
+import com.legion.settings.preferences.SystemSettingSwitchPreference;
 
 public class GamingModeSettings extends SettingsPreferenceFragment {
 
