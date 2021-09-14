@@ -1206,4 +1206,7 @@
     <string name="enable_clear_all_button">Notification clear all button</string>
     <string name="enable_clear_all_button_summary">Show button to clear all notifications instead of just plain text</string>
 
+    <!-- Qs Clock -->
+    <string name="oos_qsclock">Qs clock</string>
+    <string name="oos_qsclock_summary">Display an oos like clock on qs</string>
 </resources>
