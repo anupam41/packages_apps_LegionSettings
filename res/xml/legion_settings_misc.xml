@@ -53,6 +53,7 @@
 	<!-- Aggressive Battery -->
         <Preference
             android:key="aggressive_battery"
+            settings:iconSpaceReserved="false"
             android:title="@string/aggressive_battery_title"
             android:summary="@string/aggressive_battery_summary"
             android:fragment="com.legion.settings.fragments.AggressiveBattery" />
