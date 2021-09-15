@@ -1021,7 +1021,7 @@
 
     <string name="monet_category">Θεματοποίηση τύπου Monet</string>
     <string name="system_color_category">Χρώματα συστήματος</string>
-    <string name="system_ui_category">System UI</string>
+    <string name="system_ui_category">Διεπαφή χρήστη UI</string>
 	
     <!-- Allow to suppress notifications sound/vibration if screen is ON -->
     <string name="notification_sound_vib_screen_on_title">Ειδοποίηση ενεργής οθόνης</string>
@@ -1053,9 +1053,6 @@
     <string name="power_profile_high">Υψηλή</string>
     <string name="power_profile_ext">Μέγιστη</string>
     <string name="powersave_summary">Επιλογές για παράταση της διάρκειας ζωής της μπαταρίας σας</string>
-
-    <string name="system_color_category">Χρώματα συστήματος</string>
-    <string name="system_ui_category">Διεπαφή χρήστη UI</string>
 
     <string name="dark_ui_mode_summary">Περιηγηθείτε στις επιλογές σκοτεινού θέματος</string>
 
