@@ -41,7 +41,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:text="Vibrant" />
+            android:text="@string/auto_accent_picker_vibrant" />
 
         <TextView
             android:id="@+id/vibt"
@@ -81,7 +81,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:text="Vibrant Light" />
+            android:text="@string/auto_accent_picker_vibrant_light" />
 
         <TextView
             android:id="@+id/viblt"
@@ -120,7 +120,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:text="Dominant" />
+            android:text="@string/auto_accent_picker_dominant" />
 
         <TextView
             android:id="@+id/domt"
@@ -159,7 +159,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:text="Dominant Bright" />
+            android:text="@string/auto_accent_picker_dominant_bright" />
 
         <TextView
             android:id="@+id/dombt"
@@ -198,7 +198,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:text="Average" />
+            android:text="@string/auto_accent_picker_avg" />
 
         <TextView
             android:id="@+id/avgt"
