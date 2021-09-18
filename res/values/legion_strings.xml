@@ -1202,4 +1202,8 @@
     <string name="artwork_media_fade_level_title">Artwork fade level</string>
     <string name="artwork_media_fade_level_summary">Fading the media artwork image</string>
 
+    <!-- Clear all button -->
+    <string name="enable_clear_all_button">Notification clear all button</string>
+    <string name="enable_clear_all_button_summary">Show button to clear all notifications instead of just plain text</string>
+
 </resources>
