@@ -63,6 +63,16 @@
     <string name="theme_customization_ui_radius_title">Ακτίνα UI</string>
     <string name="theme_customization_ui_radius_vol_title">Τιμή ακτίνας UI</string>
     <string name="theme_customization_sysui_icon_title">Εικονίδιο στατικής μπάρας</string>
+	
+    <!-- Qs Icon Primary -->
+    <string name="qs_icon_primary_title">Εικονίδιο ενεργού πλακιδίου Qs φωτεινό|σκοτεινό</string>
+    <string name="qs_icon_primary_summary">Κάντε το εικονίδιο Qs φωτεινό-σκούρο εάν είναι ενεργοποιημένη η προεπιλεγμένη απόχρωση</string>
+
+    <string name="qs_icon_primary_in_title">Ανενεργό εικονίδιο πλακιδίων Qs φωτεινό|σκοτεινό</string>
+    <string name="qs_icon_primary_in_summary">Κάντε το εικονίδιο Ανενεργό Qs φωτεινό-σκούρο εάν είναι ενεργοποιημένη η προεπιλεγμένη απόχρωση</string>
+
+    <string name="qs_label_primary_title">Ετικέτα πλακιδίου Qs φωτεινή|σκοτεινή</string>
+    <string name="qs_label_primary_summary">Κάντε την ετικέτα Qs έμφαση-φωτός φωτεινή-σκοτεινή </string>
 
     <!--ThemePicker-->
     <string name="theme_select_title">Στυλ και ταπετσαρίες</string>
