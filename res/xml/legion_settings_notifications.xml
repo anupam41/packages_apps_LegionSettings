@@ -37,6 +37,22 @@
         android:summary="@string/notification_headers_summary"
         android:defaultValue="true" />
 
+	<!-- reTicker  -->
+	<com.legion.settings.preferences.SystemSettingSwitchPreference
+        android:key="reticker_status"
+        settings:iconSpaceReserved="false"
+        android:title="@string/reticker_title"
+        android:summary="@string/reticker_summary"
+        android:defaultValue="false" />
+
+	<com.legion.settings.preferences.SystemSettingSwitchPreference
+        android:key="reticker_colored"
+        settings:iconSpaceReserved="false"
+        android:dependency="reticker_status"
+        android:title="@string/reticker_colored_title"
+        android:summary="@string/reticker_colored_summary"
+        android:defaultValue="false" />
+
     <com.legion.settings.preferences.SystemSettingSwitchPreference
         android:key="center_notification_headers"
 	settings:iconSpaceReserved="false"
